@@ -3,101 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sourpuss - Rate & Review Whisky Sours</title>
+    <title>Sourpuss - Rate & Review Cocktails</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #FFF5F5 0%, #FEF3E7 100%);
+            background: #FFD9D4;
             min-height: 100vh;
-            color: #1a1a1a;
+            color: #1A1A1A;
+            overflow-x: hidden;
         }
+
+        /* Ball on string */
+        .ball-container {
+            position: fixed;
+            top: 0;
+            left: 50px;
+            z-index: 1000;
+            pointer-events: none;
+        }
+        .string {
+            width: 2px;
+            height: 80px;
+            background: linear-gradient(to bottom, #1A1A1A, #8B4513);
+            margin: 0 auto;
+            transform-origin: top center;
+            transition: transform 0.1s ease-out;
+        }
+        .ball {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #FFB900 0%, #E6A700 100%);
+            border-radius: 50%;
+            border: 3px solid #1A1A1A;
+            margin: 0 auto;
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            transform-origin: top center;
+            transition: transform 0.1s ease-out;
+        }
+        .ball-container.swinging .string,
+        .ball-container.swinging .ball {
+            animation: swing 2s ease-in-out infinite;
+        }
+        @keyframes swing {
+            0%, 100% { transform: rotate(-15deg); }
+            50% { transform: rotate(15deg); }
+        }
+
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 60px 20px;
             text-align: center;
+            position: relative;
         }
-        .logo { font-size: 80px; margin-bottom: 20px; }
+        .logo {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            border-radius: 30px;
+            border: 4px solid #1A1A1A;
+            box-shadow: 6px 6px 0 #1A1A1A;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .logo:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 9px 9px 0 #1A1A1A;
+        }
         h1 {
-            font-size: 48px;
+            font-size: 56px;
             font-weight: 800;
             margin-bottom: 16px;
+            letter-spacing: -1px;
         }
         .tagline {
-            font-size: 20px;
-            color: #666;
+            font-size: 22px;
+            color: #3D3D3D;
             margin-bottom: 40px;
+            font-weight: 500;
         }
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 24px;
-            margin: 40px 0;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin: 50px 0;
             text-align: left;
         }
         .feature {
             background: white;
             padding: 24px;
-            border-radius: 16px;
-            border: 2px solid #1a1a1a;
-            box-shadow: 4px 4px 0 #1a1a1a;
+            border-radius: 20px;
+            border: 3px solid #1A1A1A;
+            box-shadow: 5px 5px 0 #1A1A1A;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: default;
         }
-        .feature h3 { margin-bottom: 8px; }
-        .feature p { color: #666; font-size: 14px; }
+        .feature:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 8px 8px 0 #1A1A1A;
+        }
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+        .feature h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .feature p {
+            color: #6B6B6B;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .cta-section {
+            margin: 50px 0;
+        }
         .badge {
             display: inline-block;
-            margin-top: 40px;
+            transition: transform 0.2s;
+        }
+        .badge:hover {
+            transform: scale(1.05);
         }
         .badge img { height: 60px; }
+        .coming-soon {
+            display: inline-block;
+            background: #FFB900;
+            color: #1A1A1A;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 18px;
+            border: 3px solid #1A1A1A;
+            box-shadow: 4px 4px 0 #1A1A1A;
+        }
         footer {
             margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid #ddd;
+            padding: 30px 0;
+            border-top: 3px solid #1A1A1A;
+            background: rgba(255,255,255,0.5);
         }
         footer a {
-            color: #666;
+            color: #1A1A1A;
             text-decoration: none;
-            margin: 0 16px;
+            margin: 0 20px;
+            font-weight: 600;
+            transition: color 0.2s;
         }
-        footer a:hover { text-decoration: underline; }
+        footer a:hover {
+            color: #8B4513;
+        }
+        .footer-tagline {
+            margin-top: 16px;
+            color: #6B6B6B;
+            font-size: 14px;
+        }
+
+        /* Floating decorations */
+        .decoration {
+            position: fixed;
+            font-size: 30px;
+            opacity: 0.3;
+            pointer-events: none;
+            animation: float 6s ease-in-out infinite;
+        }
+        .d1 { top: 20%; left: 5%; animation-delay: 0s; }
+        .d2 { top: 60%; right: 8%; animation-delay: 1s; }
+        .d3 { bottom: 20%; left: 10%; animation-delay: 2s; }
+        .d4 { top: 40%; right: 5%; animation-delay: 3s; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
     </style>
 </head>
 <body>
+    <div class="ball-container" id="ballContainer">
+        <div class="string"></div>
+        <div class="ball">🍋</div>
+    </div>
+
+    <div class="decoration d1">🥃</div>
+    <div class="decoration d2">🍋</div>
+    <div class="decoration d3">🧊</div>
+    <div class="decoration d4">🥃</div>
+
     <div class="container">
-        <div class="logo">🥃</div>
+        <img src="https://raw.githubusercontent.com/atlascodesai/sourpuss/main/assets/brands/sourpuss/icon.png" alt="Sourpuss" class="logo">
         <h1>Sourpuss</h1>
-        <p class="tagline">Discover, rate, and review the best whisky sours in your city.</p>
+        <p class="tagline">Discover, rate, and review the best cocktails in your city.</p>
 
         <div class="features">
             <div class="feature">
-                <h3>🗺️ Find Bars</h3>
+                <div class="feature-icon">🗺️</div>
+                <h3>Find Bars</h3>
                 <p>Discover cocktail bars near you with ratings from the community.</p>
             </div>
             <div class="feature">
-                <h3>⭐ Rate & Review</h3>
-                <p>Share your whisky sour experiences and help others find great drinks.</p>
+                <div class="feature-icon">⭐</div>
+                <h3>Rate & Review</h3>
+                <p>Share your cocktail experiences and help others find great drinks.</p>
             </div>
             <div class="feature">
-                <h3>🏆 Leaderboards</h3>
+                <div class="feature-icon">🏆</div>
+                <h3>Leaderboards</h3>
                 <p>See the top-rated bars and most active reviewers in your area.</p>
             </div>
             <div class="feature">
-                <h3>❤️ Save Favorites</h3>
+                <div class="feature-icon">❤️</div>
+                <h3>Save Favorites</h3>
                 <p>Bookmark bars you want to visit and track your tasting journey.</p>
             </div>
         </div>
 
-        <div class="badge">
-            <a href="https://apps.apple.com/app/sourpuss" target="_blank">
-                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
-            </a>
+        <div class="cta-section">
+            <div class="coming-soon">🥃 Coming Soon to the App Store</div>
         </div>
+    </div>
 
-        <footer>
+    <footer>
+        <div>
             <a href="privacy.html">Privacy Policy</a>
             <a href="support.html">Support</a>
-        </footer>
-    </div>
+        </div>
+        <p class="footer-tagline">Made with whisky and cats 🐱</p>
+    </footer>
+
+    <script>
+        const ballContainer = document.getElementById('ballContainer');
+        let lastX = 0;
+        let swingTimeout;
+
+        document.addEventListener('mousemove', (e) => {
+            const deltaX = e.clientX - lastX;
+            lastX = e.clientX;
+
+            // Check if mouse is near the ball
+            const rect = ballContainer.getBoundingClientRect();
+            const ballCenterX = rect.left + rect.width / 2;
+            const ballCenterY = rect.top + rect.height;
+            const distance = Math.sqrt(
+                Math.pow(e.clientX - ballCenterX, 2) +
+                Math.pow(e.clientY - ballCenterY, 2)
+            );
+
+            if (distance < 100) {
+                ballContainer.classList.add('swinging');
+                clearTimeout(swingTimeout);
+                swingTimeout = setTimeout(() => {
+                    ballContainer.classList.remove('swinging');
+                }, 4000);
+            }
+        });
+
+        // Start with a little swing
+        setTimeout(() => {
+            ballContainer.classList.add('swinging');
+            setTimeout(() => ballContainer.classList.remove('swinging'), 4000);
+        }, 1000);
+    </script>
 </body>
 </html>
