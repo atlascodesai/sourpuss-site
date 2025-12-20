@@ -7,16 +7,21 @@ A config-driven marketing site for cocktail review apps. Easily white-label for 
 1. Clone this repository
 2. Edit `config.js` to customize your brand
 3. Replace `logo.png` and `og-image.png` with your assets
-4. Deploy to GitHub Pages or any static host
+4. Run `node build.js` to regenerate all pages
+5. Commit and push to deploy to GitHub Pages
 
 ## File Structure
 
 ```
-├── index.html          # Home page
-├── privacy/index.html  # Privacy policy
-├── support/index.html  # Support/FAQ page
-├── config.js           # 🎨 All customizable content
-├── app.js              # Application logic
+├── config.js           # 🎨 All customizable content (edit this!)
+├── build.js            # 🔨 Generates HTML from config
+├── index.html          # Home page (generated)
+├── privacy/index.html  # Privacy policy (generated)
+├── support/index.html  # Support/FAQ page (generated)
+├── sitemap.xml         # SEO sitemap (generated)
+├── robots.txt          # Search directives (generated)
+├── llms.txt            # AI context (generated)
+├── app.js              # Runtime interactions (cat toy, FAQ accordion)
 ├── styles.css          # Shared styles
 ├── logo.png            # Brand logo
 └── og-image.png        # Social sharing image (1200x630)
