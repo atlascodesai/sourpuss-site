@@ -1,0 +1,32 @@
+# Sourpuss
+
+> Find and rate the best whisky sours in your city.
+
+Sourpuss is a mobile app for cocktail enthusiasts to discover, review, and rate whisky sours at bars. The app features ratings, photos, leaderboards, and a community of discerning sippers.
+
+## Pages
+
+- [Home](https://sourpuss.app/): Main landing page with app features and download link
+- [Privacy Policy](https://sourpuss.app/privacy): How we collect, use, and protect user data
+- [Support](https://sourpuss.app/support): FAQs and contact information
+
+## Key Features
+
+- Find nearby bars with whisky sour ratings
+- Rate and review whisky sours (1-5 scale)
+- Upload photos of drinks
+- View leaderboards for top bars and reviewers
+- Save favorite bars
+
+## Contact
+
+- Email: support@sourpuss.app
+- Website: https://sourpuss.app
+
+## App Availability
+
+Coming soon to the App Store.
+
+## Technical
+
+This is a static marketing website. The actual app is built with React Native (Expo) and uses Convex for the backend.
