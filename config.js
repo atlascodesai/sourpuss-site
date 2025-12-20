@@ -174,7 +174,7 @@ const CONFIG = {
         ],
         contactSection: {
             title: "Still need help?",
-            content: "Our support team is available Monday through Friday, 9am-5pm EST."
+            content: ""
         }
     },
 
