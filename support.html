@@ -57,39 +57,38 @@
             pointer-events: none;
         }
 
+        .cat-toy svg {
+            width: 80px;
+            height: 180px;
+            overflow: visible;
+        }
+
         .toy-string {
-            width: 4px;
-            height: 120px;
-            background: linear-gradient(to bottom,
-                var(--whisky) 0%,
-                #C4956A 30%,
-                var(--whisky) 50%,
-                #A0724D 70%,
-                var(--whisky) 100%);
-            margin: 0 auto;
-            transform-origin: top center;
-            border-radius: 2px;
-            box-shadow: 1px 0 2px rgba(0,0,0,0.1);
+            fill: none;
+            stroke: #8B4513;
+            stroke-width: 3;
+            stroke-linecap: round;
         }
 
         .toy-ball {
-            width: 60px;
-            height: 60px;
+            width: 55px;
+            height: 55px;
             background:
-                radial-gradient(ellipse 100% 50% at 50% 0%, rgba(255,255,255,0.3) 0%, transparent 50%),
-                radial-gradient(circle at 30% 30%, #E88D9C, #D4707F, #C25A6A);
+                radial-gradient(ellipse 100% 50% at 50% 0%, rgba(255,255,255,0.35) 0%, transparent 40%),
+                radial-gradient(circle at 35% 35%, #E88D9C, #D4707F, #B84D5D);
             border-radius: 50%;
-            margin: -6px auto 0;
-            position: relative;
+            position: absolute;
+            top: 120px;
+            left: 50%;
+            transform: translateX(-50%);
             box-shadow:
-                inset -8px -8px 20px rgba(0,0,0,0.25),
-                inset 5px 5px 12px rgba(255,255,255,0.3),
-                0 12px 30px rgba(0,0,0,0.2);
-            transform-origin: top center;
+                inset -6px -6px 16px rgba(0,0,0,0.25),
+                inset 4px 4px 10px rgba(255,255,255,0.25),
+                0 10px 25px rgba(0,0,0,0.2);
             overflow: hidden;
         }
 
-        /* Wool texture lines */
+        /* Wool texture */
         .toy-ball::before {
             content: '';
             position: absolute;
@@ -99,47 +98,33 @@
             bottom: 0;
             background:
                 repeating-linear-gradient(
-                    45deg,
+                    65deg,
                     transparent 0px,
-                    transparent 3px,
-                    rgba(255,255,255,0.15) 3px,
-                    rgba(255,255,255,0.15) 5px
+                    transparent 2px,
+                    rgba(255,255,255,0.2) 2px,
+                    rgba(255,255,255,0.2) 4px
                 ),
                 repeating-linear-gradient(
-                    -45deg,
+                    -25deg,
                     transparent 0px,
-                    transparent 4px,
-                    rgba(0,0,0,0.08) 4px,
-                    rgba(0,0,0,0.08) 6px
+                    transparent 3px,
+                    rgba(0,0,0,0.1) 3px,
+                    rgba(0,0,0,0.1) 5px
                 );
             border-radius: 50%;
         }
 
-        /* Yarn strand hanging */
+        /* Loose yarn strand */
         .toy-ball::after {
             content: '';
             position: absolute;
-            bottom: -12px;
-            left: 50%;
-            width: 3px;
-            height: 16px;
-            background: linear-gradient(to bottom, #C25A6A, #D4707F);
-            transform: translateX(-50%) rotate(15deg);
+            bottom: -14px;
+            left: 45%;
+            width: 2px;
+            height: 18px;
+            background: linear-gradient(to bottom, #B84D5D, #D4707F, transparent);
+            transform: rotate(20deg);
             border-radius: 2px;
-        }
-
-        .cat-toy.swinging .toy-string,
-        .cat-toy.swinging .toy-ball {
-            animation: swing 2s ease-in-out;
-        }
-
-        @keyframes swing {
-            0% { transform: rotate(0deg); }
-            20% { transform: rotate(25deg); }
-            40% { transform: rotate(-20deg); }
-            60% { transform: rotate(12deg); }
-            80% { transform: rotate(-6deg); }
-            100% { transform: rotate(0deg); }
         }
 
         /* Header */
@@ -406,18 +391,15 @@
                 padding: 20px;
             }
 
-            .cat-toy {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-
-            .toy-string {
-                height: 90px;
+            .cat-toy svg {
+                width: 60px;
+                height: 140px;
             }
 
             .toy-ball {
-                width: 50px;
-                height: 50px;
+                width: 45px;
+                height: 45px;
+                top: 95px;
             }
 
             main {
@@ -439,9 +421,11 @@
     </style>
 </head>
 <body>
-    <!-- Cat Toy Ball -->
+    <!-- Cat Toy Ball of Wool -->
     <div class="cat-toy" id="catToy">
-        <div class="toy-string"></div>
+        <svg viewBox="0 0 80 180" preserveAspectRatio="xMidYMin meet">
+            <path class="toy-string" d="M 40 0 Q 40 60 40 125"/>
+        </svg>
         <div class="toy-ball"></div>
     </div>
 
@@ -555,31 +539,57 @@
             });
         });
 
-        // Cat toy interaction
+        // Cat toy interaction with dynamic string
         const catToy = document.getElementById('catToy');
+        const toyString = catToy.querySelector('.toy-string');
+        const toyBall = catToy.querySelector('.toy-ball');
         let isSwinging = false;
+        let swingPhase = 0;
+        let swingVelocity = 0;
+        let animationFrame;
+
+        function updateString(offset) {
+            const controlX = 40 + offset * 0.4;
+            const endX = 40 + offset * 0.8;
+            toyString.setAttribute('d', `M 40 0 Q ${controlX} 60 ${endX} 125`);
+            toyBall.style.transform = `translateX(calc(-50% + ${offset * 0.8}px)) rotate(${offset * 0.25}deg)`;
+        }
+
+        function animateSwing() {
+            if (Math.abs(swingVelocity) < 0.1 && Math.abs(swingPhase) < 0.5) {
+                swingPhase = 0;
+                swingVelocity = 0;
+                updateString(0);
+                isSwinging = false;
+                return;
+            }
+            swingVelocity += -swingPhase * 0.08;
+            swingVelocity *= 0.96;
+            swingPhase += swingVelocity;
+            updateString(swingPhase);
+            animationFrame = requestAnimationFrame(animateSwing);
+        }
+
+        function triggerSwing(direction = 1) {
+            if (isSwinging) return;
+            isSwinging = true;
+            swingVelocity = direction * 6;
+            cancelAnimationFrame(animationFrame);
+            animateSwing();
+        }
 
         document.addEventListener('mousemove', (e) => {
             const rect = catToy.getBoundingClientRect();
-            const toyX = rect.left + rect.width / 2;
-            const toyY = rect.top + rect.height;
-            const distance = Math.sqrt(Math.pow(e.clientX - toyX, 2) + Math.pow(e.clientY - toyY, 2));
-
-            if (distance < 120 && !isSwinging) {
-                isSwinging = true;
-                catToy.classList.add('swinging');
-                setTimeout(() => {
-                    catToy.classList.remove('swinging');
-                    isSwinging = false;
-                }, 1500);
+            const ballCenterX = rect.left + rect.width / 2;
+            const ballCenterY = rect.top + 145;
+            const distance = Math.sqrt(Math.pow(e.clientX - ballCenterX, 2) + Math.pow(e.clientY - ballCenterY, 2));
+            if (distance < 100 && !isSwinging) {
+                const direction = e.clientX > ballCenterX ? -1 : 1;
+                triggerSwing(direction);
             }
         });
 
-        // Initial swing
-        setTimeout(() => {
-            catToy.classList.add('swinging');
-            setTimeout(() => catToy.classList.remove('swinging'), 1500);
-        }, 800);
+        setTimeout(() => triggerSwing(1), 600);
     </script>
 </body>
 </html>

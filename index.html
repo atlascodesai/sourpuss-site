@@ -78,39 +78,38 @@
             pointer-events: none;
         }
 
+        .cat-toy svg {
+            width: 100px;
+            height: 220px;
+            overflow: visible;
+        }
+
         .toy-string {
-            width: 4px;
-            height: 140px;
-            background: linear-gradient(to bottom,
-                var(--whisky) 0%,
-                #C4956A 30%,
-                var(--whisky) 50%,
-                #A0724D 70%,
-                var(--whisky) 100%);
-            margin: 0 auto;
-            transform-origin: top center;
-            border-radius: 2px;
-            box-shadow: 1px 0 2px rgba(0,0,0,0.1);
+            fill: none;
+            stroke: #8B4513;
+            stroke-width: 4;
+            stroke-linecap: round;
         }
 
         .toy-ball {
-            width: 70px;
-            height: 70px;
+            width: 65px;
+            height: 65px;
             background:
-                radial-gradient(ellipse 100% 50% at 50% 0%, rgba(255,255,255,0.3) 0%, transparent 50%),
-                radial-gradient(circle at 30% 30%, #E88D9C, #D4707F, #C25A6A);
+                radial-gradient(ellipse 100% 50% at 50% 0%, rgba(255,255,255,0.35) 0%, transparent 40%),
+                radial-gradient(circle at 35% 35%, #E88D9C, #D4707F, #B84D5D);
             border-radius: 50%;
-            margin: -8px auto 0;
-            position: relative;
+            position: absolute;
+            top: 150px;
+            left: 50%;
+            transform: translateX(-50%);
             box-shadow:
-                inset -10px -10px 25px rgba(0,0,0,0.25),
-                inset 6px 6px 15px rgba(255,255,255,0.3),
-                0 15px 35px rgba(0,0,0,0.2);
-            transform-origin: top center;
+                inset -8px -8px 20px rgba(0,0,0,0.25),
+                inset 5px 5px 12px rgba(255,255,255,0.25),
+                0 12px 30px rgba(0,0,0,0.2);
             overflow: hidden;
         }
 
-        /* Wool texture lines */
+        /* Wool texture - wrapped yarn look */
         .toy-ball::before {
             content: '';
             position: absolute;
@@ -120,55 +119,43 @@
             bottom: 0;
             background:
                 repeating-linear-gradient(
-                    45deg,
+                    65deg,
+                    transparent 0px,
+                    transparent 2px,
+                    rgba(255,255,255,0.2) 2px,
+                    rgba(255,255,255,0.2) 4px
+                ),
+                repeating-linear-gradient(
+                    -25deg,
                     transparent 0px,
                     transparent 3px,
-                    rgba(255,255,255,0.15) 3px,
-                    rgba(255,255,255,0.15) 5px
+                    rgba(0,0,0,0.1) 3px,
+                    rgba(0,0,0,0.1) 5px
                 ),
                 repeating-linear-gradient(
-                    -45deg,
+                    115deg,
                     transparent 0px,
                     transparent 4px,
-                    rgba(0,0,0,0.08) 4px,
-                    rgba(0,0,0,0.08) 6px
-                ),
-                repeating-linear-gradient(
-                    90deg,
-                    transparent 0px,
-                    transparent 8px,
-                    rgba(255,255,255,0.1) 8px,
-                    rgba(255,255,255,0.1) 10px
+                    rgba(255,255,255,0.12) 4px,
+                    rgba(255,255,255,0.12) 6px
                 );
             border-radius: 50%;
         }
 
-        /* Yarn strand hanging */
+        /* Loose yarn strand */
         .toy-ball::after {
             content: '';
             position: absolute;
-            bottom: -15px;
-            left: 50%;
-            width: 3px;
-            height: 20px;
-            background: linear-gradient(to bottom, #C25A6A, #D4707F);
-            transform: translateX(-50%) rotate(15deg);
+            bottom: -18px;
+            left: 45%;
+            width: 2.5px;
+            height: 22px;
+            background: linear-gradient(to bottom, #B84D5D, #D4707F, transparent);
+            transform: rotate(20deg);
             border-radius: 2px;
         }
 
-        .cat-toy.swinging .toy-string,
-        .cat-toy.swinging .toy-ball {
-            animation: swing 2s ease-in-out;
-        }
-
-        @keyframes swing {
-            0% { transform: rotate(0deg); }
-            20% { transform: rotate(30deg); }
-            40% { transform: rotate(-25deg); }
-            60% { transform: rotate(15deg); }
-            80% { transform: rotate(-8deg); }
-            100% { transform: rotate(0deg); }
-        }
+        /* Ball swing animation handled by JavaScript for dynamic string */
 
         /* Navigation */
         nav {
@@ -534,18 +521,15 @@
 
         /* Mobile */
         @media (max-width: 768px) {
-            .cat-toy {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-
-            .toy-string {
-                height: 100px;
+            .cat-toy svg {
+                width: 80px;
+                height: 180px;
             }
 
             .toy-ball {
-                width: 55px;
-                height: 55px;
+                width: 50px;
+                height: 50px;
+                top: 120px;
             }
 
             nav {
@@ -564,13 +548,29 @@
             .marquee-container {
                 transform: rotate(-2deg) scale(1.05);
             }
+
+            .marquee-item {
+                font-size: 18px;
+                padding: 0 30px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Cat Toy Ball -->
+    <!-- Cat Toy Ball of Wool -->
     <div class="cat-toy" id="catToy">
-        <div class="toy-string"></div>
+        <svg viewBox="0 0 100 220" preserveAspectRatio="xMidYMin meet">
+            <defs>
+                <linearGradient id="stringGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#8B4513"/>
+                    <stop offset="30%" stop-color="#A0724D"/>
+                    <stop offset="50%" stop-color="#8B4513"/>
+                    <stop offset="70%" stop-color="#6B3410"/>
+                    <stop offset="100%" stop-color="#8B4513"/>
+                </linearGradient>
+            </defs>
+            <path class="toy-string" d="M 50 0 Q 50 80 50 155"/>
+        </svg>
         <div class="toy-ball"></div>
     </div>
 
@@ -585,16 +585,16 @@
         <div class="floater">🥃</div>
         <div class="floater">🍋</div>
         <div class="floater">🧊</div>
-        <div class="floater">🍸</div>
-        <div class="floater">✨</div>
+        <div class="floater">🐱</div>
         <div class="floater">🥃</div>
+        <div class="floater">✨</div>
 
         <div class="hero-content">
             <div class="brand-badge">
-                <span>🐱</span> Cocktail Reviews
+                <span>🥃</span> Whisky Sour Reviews
             </div>
             <h1>Sour<span class="highlight">puss</span></h1>
-            <p class="tagline">Discover, rate, and review the best cocktails in your city. Join the community of discerning sippers.</p>
+            <p class="tagline">Find and rate the best whisky sours in your city. A community for discerning sippers.</p>
             <a href="#" class="cta-button">
                 <span class="icon"></span>
                 Coming Soon to App Store
@@ -602,21 +602,21 @@
         </div>
     </section>
 
-    <!-- Marquee -->
+    <!-- Marquee with cat quotes -->
     <div class="marquee-container">
         <div class="marquee">
-            <div class="marquee-item">Whisky Sours <span>✦</span></div>
-            <div class="marquee-item">Old Fashioneds <span>✦</span></div>
-            <div class="marquee-item">Negronis <span>✦</span></div>
-            <div class="marquee-item">Margaritas <span>✦</span></div>
-            <div class="marquee-item">Daiquiris <span>✦</span></div>
-            <div class="marquee-item">Martinis <span>✦</span></div>
-            <div class="marquee-item">Whisky Sours <span>✦</span></div>
-            <div class="marquee-item">Old Fashioneds <span>✦</span></div>
-            <div class="marquee-item">Negronis <span>✦</span></div>
-            <div class="marquee-item">Margaritas <span>✦</span></div>
-            <div class="marquee-item">Daiquiris <span>✦</span></div>
-            <div class="marquee-item">Martinis <span>✦</span></div>
+            <div class="marquee-item">*sips judgmentally* <span>🐱</span></div>
+            <div class="marquee-item">meow. <span>🥃</span></div>
+            <div class="marquee-item">I'll be the judge of that <span>🐱</span></div>
+            <div class="marquee-item">Purrfection or nothing <span>🥃</span></div>
+            <div class="marquee-item">This better be good <span>🐱</span></div>
+            <div class="marquee-item">*judges silently* <span>🥃</span></div>
+            <div class="marquee-item">*sips judgmentally* <span>🐱</span></div>
+            <div class="marquee-item">meow. <span>🥃</span></div>
+            <div class="marquee-item">I'll be the judge of that <span>🐱</span></div>
+            <div class="marquee-item">Purrfection or nothing <span>🥃</span></div>
+            <div class="marquee-item">This better be good <span>🐱</span></div>
+            <div class="marquee-item">*judges silently* <span>🥃</span></div>
         </div>
     </div>
 
@@ -666,31 +666,61 @@
     </footer>
 
     <script>
-        // Cat toy interaction
+        // Cat toy interaction with dynamic string
         const catToy = document.getElementById('catToy');
+        const toyString = catToy.querySelector('.toy-string');
+        const toyBall = catToy.querySelector('.toy-ball');
         let isSwinging = false;
+        let swingPhase = 0;
+        let swingVelocity = 0;
+        let animationFrame;
+
+        function updateString(offset) {
+            const controlX = 50 + offset * 0.5;
+            const endX = 50 + offset;
+            toyString.setAttribute('d', `M 50 0 Q ${controlX} 80 ${endX} 155`);
+            toyBall.style.transform = `translateX(calc(-50% + ${offset}px)) rotate(${offset * 0.3}deg)`;
+        }
+
+        function animateSwing() {
+            if (Math.abs(swingVelocity) < 0.1 && Math.abs(swingPhase) < 0.5) {
+                swingPhase = 0;
+                swingVelocity = 0;
+                updateString(0);
+                isSwinging = false;
+                return;
+            }
+
+            swingVelocity += -swingPhase * 0.08; // spring force
+            swingVelocity *= 0.96; // damping
+            swingPhase += swingVelocity;
+
+            updateString(swingPhase);
+            animationFrame = requestAnimationFrame(animateSwing);
+        }
+
+        function triggerSwing(direction = 1) {
+            if (isSwinging) return;
+            isSwinging = true;
+            swingVelocity = direction * 8;
+            cancelAnimationFrame(animationFrame);
+            animateSwing();
+        }
 
         document.addEventListener('mousemove', (e) => {
             const rect = catToy.getBoundingClientRect();
-            const toyX = rect.left + rect.width / 2;
-            const toyY = rect.top + rect.height;
-            const distance = Math.sqrt(Math.pow(e.clientX - toyX, 2) + Math.pow(e.clientY - toyY, 2));
+            const ballCenterX = rect.left + rect.width / 2;
+            const ballCenterY = rect.top + 180;
+            const distance = Math.sqrt(Math.pow(e.clientX - ballCenterX, 2) + Math.pow(e.clientY - ballCenterY, 2));
 
-            if (distance < 150 && !isSwinging) {
-                isSwinging = true;
-                catToy.classList.add('swinging');
-                setTimeout(() => {
-                    catToy.classList.remove('swinging');
-                    isSwinging = false;
-                }, 1500);
+            if (distance < 120 && !isSwinging) {
+                const direction = e.clientX > ballCenterX ? -1 : 1;
+                triggerSwing(direction);
             }
         });
 
         // Initial swing
-        setTimeout(() => {
-            catToy.classList.add('swinging');
-            setTimeout(() => catToy.classList.remove('swinging'), 1500);
-        }, 500);
+        setTimeout(() => triggerSwing(1), 800);
 
         // Scroll reveal
         const reveals = document.querySelectorAll('.reveal');
