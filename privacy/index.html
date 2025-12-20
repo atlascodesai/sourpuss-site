@@ -27,196 +27,15 @@
     <!-- Theme color -->
     <meta name="theme-color" content="#FFD9D4">
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --blush: #FFD9D4;
-            --blush-light: #FFF0ED;
-            --golden: #FFB900;
-            --golden-dark: #E6A700;
-            --ink: #1A1A1A;
-            --whisky: #8B4513;
-            --cream: #FFF8F5;
-        }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--blush);
-            color: var(--ink);
-            line-height: 1.7;
-            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='7' cy='5' r='2.5' fill='%231A1A1A'/%3E%3Ccircle cx='12' cy='3.5' r='2.5' fill='%231A1A1A'/%3E%3Ccircle cx='17' cy='5' r='2.5' fill='%231A1A1A'/%3E%3Cpath d='M12 9c-4 0-7 3-7 6.5S9 22 12 22s7-3 7-6.5S16 9 12 9z' fill='%231A1A1A'/%3E%3C/svg%3E") 12 16, auto;
-        }
-
-        a, button {
-            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='7' cy='5' r='2.5' fill='%23FFB900'/%3E%3Ccircle cx='12' cy='3.5' r='2.5' fill='%23FFB900'/%3E%3Ccircle cx='17' cy='5' r='2.5' fill='%23FFB900'/%3E%3Cpath d='M12 9c-4 0-7 3-7 6.5S9 22 12 22s7-3 7-6.5S16 9 12 9z' fill='%23FFB900'/%3E%3C/svg%3E") 12 16, pointer;
-        }
-
-        /* Noise texture overlay */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-            opacity: 0.03;
-            pointer-events: none;
-            z-index: 50;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            right: 0;
-            padding: 28px 40px;
-            z-index: 500;
-            display: flex;
-            gap: 30px;
-            background: rgba(255, 217, 212, 0.9);
-            backdrop-filter: blur(10px);
-        }
-
-        nav a {
-            color: var(--ink);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            line-height: 1.2;
-            opacity: 0.7;
-            transition: opacity 0.3s, border-color 0.3s;
-            padding-bottom: 4px;
-            border-bottom: 2px solid transparent;
-        }
-
-        nav a:hover { opacity: 1; }
-
-        nav a.active {
-            opacity: 1;
-            border-bottom-color: var(--golden);
-        }
-
-        /* Main content */
-        main {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 140px 20px 100px;
-        }
-
-        .page-header {
-            margin-bottom: 60px;
-        }
-
-        .page-header h1 {
-            font-family: 'Fraunces', serif;
-            font-size: clamp(48px, 8vw, 72px);
-            font-weight: 900;
-            margin-bottom: 15px;
-            letter-spacing: -2px;
-        }
-
-        .page-header .date {
-            display: inline-block;
-            background: var(--golden);
-            padding: 8px 16px;
-            border-radius: 100px;
-            font-size: 13px;
-            font-weight: 600;
-        }
-
-        .content-section {
-            background: var(--cream);
-            border-radius: 24px;
-            padding: 40px;
-            margin-bottom: 24px;
-            transition: transform 0.3s;
-        }
-
-        .content-section:hover {
-            transform: translateY(-4px);
-        }
-
-        .content-section h2 {
-            font-family: 'Fraunces', serif;
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .content-section h2 .icon {
-            font-size: 28px;
-        }
-
-        .content-section p {
-            margin-bottom: 16px;
-            opacity: 0.8;
-        }
-
-        .content-section ul {
-            margin: 16px 0 16px 24px;
-        }
-
-        .content-section li {
-            margin-bottom: 10px;
-            opacity: 0.8;
-        }
-
-        .content-section strong {
-            color: var(--whisky);
-        }
-
-        a.email-link {
-            color: var(--whisky);
-            text-decoration: none;
-            font-weight: 600;
-            border-bottom: 2px solid var(--golden);
-            transition: border-color 0.3s;
-        }
-
-        a.email-link:hover {
-            border-color: var(--whisky);
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--ink);
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 40px;
-            padding: 16px 28px;
-            background: var(--ink);
-            color: var(--cream);
-            border-radius: 100px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .back-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            opacity: 0.5;
-            font-size: 14px;
-        }
-    </style>
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles.css">
 </head>
-<body>
+<body class="page-privacy">
     <!-- Navigation -->
     <nav>
         <a href="/">Home</a>
@@ -230,6 +49,7 @@
             <span class="date">Updated December 20, 2025</span>
         </div>
 
+        <!-- Content sections populated by JS from config -->
         <div class="content-section">
             <p>Sourpuss ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our mobile application.</p>
         </div>
@@ -298,8 +118,19 @@
         <a href="/" class="back-link">← Back to Home</a>
     </main>
 
+    <!-- Footer -->
     <footer>
-        Made with whisky and cats
+        <div class="footer-logo">🐱 Sourpuss</div>
+        <div class="footer-links">
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/support">Support</a>
+            <a href="mailto:support@sourpuss.app">Contact</a>
+        </div>
+        <p class="footer-tagline">Made with whisky and cats</p>
     </footer>
+
+    <!-- Config and App Scripts -->
+    <script src="/config.js"></script>
+    <script src="/app.js"></script>
 </body>
 </html>
