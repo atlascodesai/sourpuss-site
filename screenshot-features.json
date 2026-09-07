@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "sourceHash": "7118401b2fa67b0b635e7f2565020eda8355a4a02b21a731c6041958c1fda0a3",
+  "locale": "en-US",
+  "features": [
+    {
+      "id": "explore",
+      "title": "Find a place",
+      "description": "Explore places nearby and save somewhere for another night.",
+      "altText": "Explore map showing populated venue pins and search.",
+      "image": null,
+      "captureState": "missing"
+    },
+    {
+      "id": "journal",
+      "title": "Remember the drink",
+      "description": "Keep a rating, a photo and the details of your drink.",
+      "altText": "A saved whisky sour review with rating, tasting notes and photo.",
+      "image": null,
+      "captureState": "missing"
+    },
+    {
+      "id": "compare",
+      "title": "Compare notes",
+      "description": "Read community reviews before choosing your next stop.",
+      "altText": "Venue details showing populated community reviews.",
+      "image": null,
+      "captureState": "missing"
+    },
+    {
+      "id": "saved",
+      "title": "Keep a list",
+      "description": "Save the places you want to try and the ones you would visit again.",
+      "altText": "Saved places list with several venues.",
+      "image": null,
+      "captureState": "missing"
+    }
+  ]
+}

@@ -12,10 +12,10 @@ A good whisky sour is worth remembering. Find your next one. Keep notes on the l
 
 ## Key Features
 
-- Find a place: Look around the map, read reviews and pick somewhere for a whisky sour
-- Remember the drink: The balance, the glass, the first sip
-- Compare notes: See which places other reviewers rate
-- Keep a short list: Save places for another night, and keep the ones you would go back to close at hand
+- Find a place: Explore places nearby and save somewhere for another night
+- Remember the drink: Keep a rating, a photo and the details of your drink
+- Compare notes: Read community reviews before choosing your next stop
+- Keep a list: Save the places you want to try and the ones you would visit again
 
 ## Contact
 

@@ -15,6 +15,8 @@ function asset(file) {
 
 // Load config
 const config = require('./config.js');
+const screenshotFeatures = require('./screenshot-features.json');
+config.features.items = screenshotFeatures.features;
 
 // Helper to generate meta tags
 function generateMetaTags(page) {
@@ -117,6 +119,7 @@ function generateIndex() {
 
                 <h3>${f.title}</h3>
                 <p>${f.description}</p>
+${f.image ? `                <img class="feature-screenshot" src="${f.image}" alt="${f.altText}" loading="lazy">` : ''}
             </div>`).join('\n\n');
 
     return `<!DOCTYPE html>

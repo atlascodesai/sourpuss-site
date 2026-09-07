@@ -86,3 +86,5 @@ body {
 a, button, .faq-question, .cta-button {
     cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='5' cy='6' r='2.2' fill='%23FFB900'/%3E%3Ccircle cx='9' cy='3' r='2.2' fill='%23FFB900'/%3E%3Ccircle cx='15' cy='3' r='2.2' fill='%23FFB900'/%3E%3Ccircle cx='19' cy='6' r='2.2' fill='%23FFB900'/%3E%3Cpath d='M12 9c-4 0-7 3-7 6.5S9 22 12 22s7-3 7-6.5S16 9 12 9z' fill='%23FFB900'/%3E%3C/svg%3E") 12 16, pointer;
 }
+
+.feature-screenshot { display:block; max-width:100%; max-height:560px; object-fit:contain; margin:28px auto 0; }

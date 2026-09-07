@@ -35,28 +35,7 @@ const CONFIG = {
     features: {
         title: "For the next round.",
         subtitle: "A map of places to try. A journal of drinks worth remembering.",
-        items: [
-            {
-                icon: "",
-                title: "Find a place",
-                description: "Look around the map, read reviews and pick somewhere for a whisky sour."
-            },
-            {
-                icon: "",
-                title: "Remember the drink",
-                description: "The balance, the glass, the first sip. Save a rating, a few notes and a photo. Keep it private or share it."
-            },
-            {
-                icon: "",
-                title: "Compare notes",
-                description: "See which places other reviewers rate. Find a favourite you might have walked past."
-            },
-            {
-                icon: "",
-                title: "Keep a short list",
-                description: "Save places for another night, and keep the ones you would go back to close at hand."
-            }
-        ]
+        // Feature copy is generated from the app's screenshot story.
     },
 
     // Marquee quotes
