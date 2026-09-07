@@ -1,0 +1,15 @@
+schemaVersion: 1
+id: sourpuss-site
+name: Sourpuss website
+kind: webApplication
+summary: Public Sourpuss marketing, privacy, and support pages generated from config.js and published through GitHub Pages.
+capabilities: [browserReview]
+platforms: [web]
+repository:
+  canonicalRemotes:
+    - https://github.com/atlascodesai/sourpuss-site.git
+integrations:
+  copy: []
+  work:
+    backlogPath: .san/work.yml
+    format: sanWorkV2

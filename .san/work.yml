@@ -1,0 +1,13 @@
+schemaVersion: 2
+projectID: sourpuss-site
+items:
+  - id: SITE-PRIVACY-001
+    title: Reconcile the 2025 privacy policy with current authentication, purchases, telemetry, and deletion
+    state: in-progress
+    priority: now
+    evidenceRequirements: [current-product-data-map, reviewed-policy-copy, generated-pages-reviewed, owner-publication-approval, live-readback]
+  - id: SITE-SUPPORT-001
+    title: Match support instructions and availability claims to the actual Sourpuss release
+    state: proposed
+    priority: now
+    evidenceRequirements: [current-app-journey, public-store-availability, generated-pages-reviewed, owner-publication-approval]
