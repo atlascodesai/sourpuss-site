@@ -55,13 +55,20 @@
     function stop() { cancelAnimationFrame(frame); frame = 0; }
     function brush(x, y, time) {
         const point = { x, y, time };
-        if (previous && time - previous.time < 150 && !reducedMotion.matches) {
+        if (!reducedMotion.matches) {
             const rect = ball.getBoundingClientRect();
-            const impulse = physics.brushImpulse(previous, point, {
+            const target = {
                 x: rect.left + rect.width / 2,
                 y: rect.top + rect.height / 2,
-                radius: rect.width / 2 + 16
-            });
+                radius: rect.width / 2 + 32
+            };
+            let impulse = 0;
+            if (previous && time - previous.time < 300) {
+                impulse = physics.brushImpulse(previous, point, target);
+            } else if (Math.hypot(x - target.x, y - target.y) < target.radius) {
+                // A first hover event near the ball should swat it immediately.
+                impulse = x < target.x ? 1.8 : -1.8;
+            }
             if (impulse) {
                 state.velocity = physics.clamp(state.velocity + impulse, -7, 7);
                 start();
@@ -69,8 +76,7 @@
         }
         previous = point;
     }
-    document.addEventListener('pointermove', function (event) {
-        if (event.pointerType === 'touch') return;
+    document.addEventListener('mousemove', function (event) {
         brush(event.clientX, event.clientY, performance.now());
     }, { passive: true });
     // Observe touches without capturing them or preventing normal page scrolling.
