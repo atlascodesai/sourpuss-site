@@ -2,7 +2,7 @@
 
 > Find and rate the best whisky sours in your city
 
-Find and rate the best whisky sours in your city. A community for discerning sippers.
+A good whisky sour is worth remembering. Find your next one. Keep notes on the last.
 
 ## Pages
 
@@ -12,10 +12,10 @@ Find and rate the best whisky sours in your city. A community for discerning sip
 
 ## Key Features
 
-- Find Bars: Discover cocktail bars near you with real ratings from fellow enthusiasts
-- Rate & Review: Share your cocktail experiences with the community
-- Leaderboards: See the top-rated bars and most active reviewers in your area
-- Save Favorites: Bookmark the bars you love or want to visit
+- Find a place: Look around the map, read reviews and pick somewhere for a whisky sour
+- Remember the drink: The balance, the glass, the first sip
+- Compare notes: See which places other reviewers rate
+- Keep a short list: Save places for another night, and keep the ones you would go back to close at hand
 
 ## Contact
 
@@ -24,4 +24,4 @@ Find and rate the best whisky sours in your city. A community for discerning sip
 
 ## App Availability
 
-Coming Soon to App Store.
+Explore Sourpuss.

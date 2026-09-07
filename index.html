@@ -10,8 +10,8 @@
     <link rel="canonical" href="https://sourpuss.app">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/logo.png">
-    <link rel="apple-touch-icon" href="/logo.png">
+    <link rel="icon" type="image/png" href="">
+    <link rel="apple-touch-icon" href="">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -39,19 +39,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/styles.css?v=e54466d69d">
 </head>
 <body class="page-home">
-    <!-- Cat Toy Ball of Wool -->
-    <div class="cat-toy" id="catToy">
-        <svg viewBox="0 0 100 220" preserveAspectRatio="xMidYMin meet">
-            <path class="toy-string" d="M 50 0 Q 50 75 50 150"/>
-        </svg>
-        <div class="toy-ball">
-            <div class="toy-ball-connector"></div>
-        </div>
-    </div>
-
     <!-- Navigation -->
     <nav>
         <a href="/" class="active">Home</a>
@@ -61,88 +51,75 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="floater">🥃</div>
-        <div class="floater">🍋</div>
-        <div class="floater">🧊</div>
-        <div class="floater">🐱</div>
-        <div class="floater">🥃</div>
-        <div class="floater">✨</div>
+
 
         <div class="hero-content">
             <img src="/logo.png" alt="Sourpuss" class="hero-logo">
-            <h1>Sour<span class="highlight">puss</span></h1>
-            <p class="tagline">Find and rate the best whisky sours in your city. A community for discerning sippers.</p>
-            <a href="#" class="cta-button">
+            <h1>Sourpuss</h1>
+            <p class="tagline">A good whisky sour is worth remembering. Find your next one. Keep notes on the last.</p>
+            <a href="#features" class="cta-button">
                 <span class="icon"></span>
-                Coming Soon to App Store
+                Explore Sourpuss
             </a>
+            <p class="availability">In development for iPhone.</p>
+        </div>
+        <div class="toy-stage">
+            <div class="cat-toy" id="catToy">
+                <svg viewBox="0 0 400 420" aria-hidden="true"><path class="toy-string" d="M 200 0 L 200 260"/></svg>
+                <button type="button" class="toy-ball" aria-label="Play with the wool ball" aria-describedby="toyHint"><span class="toy-ball-connector"></span></button>
+            </div>
+            <p id="toyHint">Go on. Give it a tug.</p>
+            <p class="toy-help">Drag &amp; release. Or use the arrow keys.</p>
         </div>
     </section>
 
-    <!-- Marquee with quotes -->
-    <div class="marquee-container">
-        <div class="marquee">
-            <div class="marquee-item">*sips judgmentally* <span>🐱</span></div>
-            <div class="marquee-item">meow. <span>🥃</span></div>
-            <div class="marquee-item">I'll be the judge of that <span>🐱</span></div>
-            <div class="marquee-item">Purrfection or nothing <span>🥃</span></div>
-            <div class="marquee-item">This better be good <span>🐱</span></div>
-            <div class="marquee-item">*judges silently* <span>🥃</span></div>
-            <div class="marquee-item">*sips judgmentally* <span>🐱</span></div>
-            <div class="marquee-item">meow. <span>🥃</span></div>
-            <div class="marquee-item">I'll be the judge of that <span>🐱</span></div>
-            <div class="marquee-item">Purrfection or nothing <span>🥃</span></div>
-            <div class="marquee-item">This better be good <span>🐱</span></div>
-            <div class="marquee-item">*judges silently* <span>🥃</span></div>
-        </div>
-    </div>
-
     <!-- Features Section -->
-    <section class="features">
-        <div class="features-header reveal">
-            <h2>Everything you need</h2>
-            <p>Your pocket guide to the perfect pour</p>
+    <section class="features" id="features">
+        <div class="features-header">
+            <h2>For the next round.</h2>
+            <p>A map of places to try. A journal of drinks worth remembering.</p>
         </div>
         <div class="features-grid">
-            <div class="feature-card reveal">
-                <div class="feature-icon">🗺️</div>
-                <h3>Find Bars</h3>
-                <p>Discover cocktail bars near you with real ratings from fellow enthusiasts. Never settle for a mediocre drink again.</p>
+            <div class="feature-card">
+
+                <h3>Find a place</h3>
+                <p>Look around the map, read reviews and pick somewhere for a whisky sour.</p>
             </div>
 
-            <div class="feature-card reveal">
-                <div class="feature-icon">⭐</div>
-                <h3>Rate & Review</h3>
-                <p>Share your cocktail experiences with the community. Your taste matters—help others find their next favorite spot.</p>
+            <div class="feature-card">
+
+                <h3>Remember the drink</h3>
+                <p>The balance, the glass, the first sip. Save a rating, a few notes and a photo. Keep it private or share it.</p>
             </div>
 
-            <div class="feature-card reveal">
-                <div class="feature-icon">🏆</div>
-                <h3>Leaderboards</h3>
-                <p>See the top-rated bars and most active reviewers in your area. Competition makes everything more fun.</p>
+            <div class="feature-card">
+
+                <h3>Compare notes</h3>
+                <p>See which places other reviewers rate. Find a favourite you might have walked past.</p>
             </div>
 
-            <div class="feature-card reveal">
-                <div class="feature-icon">❤️</div>
-                <h3>Save Favorites</h3>
-                <p>Bookmark the bars you love or want to visit. Build your personal cocktail bucket list.</p>
+            <div class="feature-card">
+
+                <h3>Keep a short list</h3>
+                <p>Save places for another night, and keep the ones you would go back to close at hand.</p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-logo">🐱 Sourpuss</div>
+        <div class="footer-logo">Sourpuss</div>
         <div class="footer-links">
             <a href="/privacy">Privacy Policy</a>
             <a href="/support">Support</a>
             <a href="mailto:support@sourpuss.app">Contact</a>
         </div>
-        <p class="footer-tagline">Made with whisky and cats</p>
+        <p class="footer-tagline">Good drinks. Strong opinions.</p>
     </footer>
 
     <!-- Config and App Scripts -->
-    <script src="/config.js"></script>
-    <script src="/app.js"></script>
+    <script src="/config.js?v=811193e51d"></script>
+    <script src="/toy-physics.js?v=0d1de9781e"></script>
+    <script src="/app.js?v=9419b640e2"></script>
 </body>
 </html>

@@ -7,6 +7,11 @@
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
+function asset(file) {
+    const version = crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname, file))).digest('hex').slice(0, 10);
+    return `/${file}?v=${version}`;
+}
 
 // Load config
 const config = require('./config.js');
@@ -67,7 +72,7 @@ function generateMetaTags(page) {
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="/styles.css">`;
+    <link rel="stylesheet" href="${asset('styles.css')}">`;
 }
 
 // Helper to generate nav
@@ -87,7 +92,7 @@ function generateFooter() {
     }).join('\n');
 
     return `    <footer>
-        <div class="footer-logo">🐱 ${config.brand.name}</div>
+        <div class="footer-logo">${config.brand.name}</div>
         <div class="footer-links">
 ${links}
         </div>
@@ -108,14 +113,8 @@ function generateBrandName() {
 
 // Generate index.html
 function generateIndex() {
-    const floaters = config.floaters.map(e => `        <div class="floater">${e}</div>`).join('\n');
+    const features = config.features.items.map(f => `            <div class="feature-card">
 
-    const marqueeItems = [...config.marquee.quotes, ...config.marquee.quotes]
-        .map(q => `            <div class="marquee-item">${q.text} <span>${q.icon}</span></div>`)
-        .join('\n');
-
-    const features = config.features.items.map(f => `            <div class="feature-card reveal">
-                <div class="feature-icon">${f.icon}</div>
                 <h3>${f.title}</h3>
                 <p>${f.description}</p>
             </div>`).join('\n\n');
@@ -126,22 +125,12 @@ function generateIndex() {
 ${generateMetaTags('home')}
 </head>
 <body class="page-home">
-    <!-- Cat Toy Ball of Wool -->
-    <div class="cat-toy" id="catToy">
-        <svg viewBox="0 0 100 220" preserveAspectRatio="xMidYMin meet">
-            <path class="toy-string" d="M 50 0 Q 50 75 50 150"/>
-        </svg>
-        <div class="toy-ball">
-            <div class="toy-ball-connector"></div>
-        </div>
-    </div>
-
     <!-- Navigation -->
 ${generateNav('home')}
 
     <!-- Hero Section -->
     <section class="hero">
-${floaters}
+
 
         <div class="hero-content">
             <img src="${config.brand.logo}" alt="${config.brand.name}" class="hero-logo">
@@ -151,19 +140,21 @@ ${floaters}
                 <span class="icon">${config.hero.ctaIcon}</span>
                 ${config.hero.ctaText}
             </a>
+            <p class="availability">In development for iPhone.</p>
+        </div>
+        <div class="toy-stage">
+            <div class="cat-toy" id="catToy">
+                <svg viewBox="0 0 400 420" aria-hidden="true"><path class="toy-string" d="M 200 0 L 200 260"/></svg>
+                <button type="button" class="toy-ball" aria-label="Play with the wool ball" aria-describedby="toyHint"><span class="toy-ball-connector"></span></button>
+            </div>
+            <p id="toyHint">Go on. Give it a tug.</p>
+            <p class="toy-help">Drag &amp; release. Or use the arrow keys.</p>
         </div>
     </section>
 
-    <!-- Marquee with quotes -->
-    <div class="marquee-container">
-        <div class="marquee">
-${marqueeItems}
-        </div>
-    </div>
-
     <!-- Features Section -->
-    <section class="features">
-        <div class="features-header reveal">
+    <section class="features" id="features">
+        <div class="features-header">
             <h2>${config.features.title}</h2>
             <p>${config.features.subtitle}</p>
         </div>
@@ -176,8 +167,9 @@ ${features}
 ${generateFooter()}
 
     <!-- Config and App Scripts -->
-    <script src="/config.js"></script>
-    <script src="/app.js"></script>
+    <script src="${asset('config.js')}"></script>
+    <script src="${asset('toy-physics.js')}"></script>
+    <script src="${asset('app.js')}"></script>
 </body>
 </html>`;
 }
@@ -222,8 +214,9 @@ ${sections}
 ${generateFooter()}
 
     <!-- Config and App Scripts -->
-    <script src="/config.js"></script>
-    <script src="/app.js"></script>
+    <script src="${asset('config.js')}"></script>
+    <script src="${asset('toy-physics.js')}"></script>
+    <script src="${asset('app.js')}"></script>
 </body>
 </html>`;
 }
@@ -257,7 +250,7 @@ ${faqs}
         </div>
 
         <div class="contact-card">
-            <h2><span class="icon">💬</span> ${config.support.contactSection.title}</h2>
+            <h2>${config.support.contactSection.title}</h2>
             <p>${config.support.contactSection.content}</p>
             <a href="mailto:${config.contact.email}" class="email-link">${config.contact.email}</a>
         </div>
@@ -269,8 +262,9 @@ ${faqs}
 ${generateFooter()}
 
     <!-- Config and App Scripts -->
-    <script src="/config.js"></script>
-    <script src="/app.js"></script>
+    <script src="${asset('config.js')}"></script>
+    <script src="${asset('toy-physics.js')}"></script>
+    <script src="${asset('app.js')}"></script>
 </body>
 </html>`;
 }
