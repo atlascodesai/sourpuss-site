@@ -7,7 +7,7 @@ const CONFIG = {
         tagline: "A good whisky sour is worth remembering. Find your next one. Keep notes on the last.",
         shortTagline: "Find and rate the best whisky sours in your city",
         logo: "/logo.png",
-        favicon: "",
+        favicon: "/logo.png",
         url: "https://sourpuss.app"
     },
 

@@ -5,44 +5,81 @@
  * Then commit and push to GitHub Pages
  */
 
-const fs = require('fs');
-const path = require('path');
-const crypto = require('crypto');
+const fs = require("fs");
+const path = require("path");
+const crypto = require("crypto");
 function asset(file) {
-    const version = crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname, file))).digest('hex').slice(0, 10);
-    return `/${file}?v=${version}`;
+  const version = crypto
+    .createHash("sha256")
+    .update(fs.readFileSync(path.join(__dirname, file)))
+    .digest("hex")
+    .slice(0, 10);
+  return `/${file}?v=${version}`;
 }
 
 // Load config
-const config = require('./config.js');
-const screenshotFeatures = require('./screenshot-features.json');
+const englishConfig = require("./config.js");
+let config = structuredClone(englishConfig);
+let locale = "en";
+function route(page, language = locale) {
+  const prefix = language === "es" ? "/es" : "";
+  return `${prefix}/${page === "home" ? "" : page + "/"}`;
+}
+const labels = {
+  en: {
+    home: "Home",
+    privacy: "Privacy",
+    support: "Support",
+    policy: "Privacy Policy",
+    updated: "Updated",
+    back: "Back to Home",
+    availability: "In development for iPhone.",
+    contact: "If you have questions about this Privacy Policy, contact us at",
+  },
+  es: {
+    home: "Inicio",
+    privacy: "Privacidad",
+    support: "Ayuda",
+    policy: "Política de privacidad",
+    updated: "Actualizada el",
+    back: "Volver al inicio",
+    availability: "En desarrollo para iPhone.",
+    contact:
+      "Si tienes preguntas sobre esta política de privacidad, escríbenos a",
+  },
+};
+const screenshotFeatures = require("./screenshot-features.json");
 config.features.items = screenshotFeatures.features;
 
 // Helper to generate meta tags
 function generateMetaTags(page) {
-    const isHome = page === 'home';
-    const isPrivacy = page === 'privacy';
-    const isSupport = page === 'support';
+  const isHome = page === "home";
+  const isPrivacy = page === "privacy";
+  const isSupport = page === "support";
 
-    const title = isHome ? config.seo.title :
-                  isPrivacy ? `Privacy Policy — ${config.brand.name}` :
-                  `Support — ${config.brand.name}`;
+  const title = isHome
+    ? config.seo.title
+    : isPrivacy
+      ? `${labels[locale].policy} — ${config.brand.name}`
+      : `${labels[locale].support} — ${config.brand.name}`;
 
-    const description = isHome ? config.seo.description :
-                        isPrivacy ? `Privacy Policy for ${config.brand.name} - ${config.seo.description.split('.')[0].toLowerCase()}.` :
-                        `Get help with ${config.brand.name}. Find answers to FAQs or contact our support team.`;
+  const description = isHome
+    ? config.seo.description
+    : isPrivacy
+      ? `${labels[locale].policy} — ${config.brand.name}`
+      : config.support.subtitle;
+  const url = config.brand.url + route(page);
 
-    const url = isHome ? config.brand.url :
-                isPrivacy ? `${config.brand.url}/privacy` :
-                `${config.brand.url}/support`;
-
-    return `    <meta charset="UTF-8">
+  return `    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${title}</title>
     <meta name="description" content="${description}">
-    ${isHome ? `<meta name="keywords" content="${config.seo.keywords}">` : ''}
+    ${isHome ? `<meta name="keywords" content="${config.seo.keywords}">` : ""}
     <meta name="author" content="${config.brand.name}">
     <link rel="canonical" href="${url}">
+    <link rel="alternate" hreflang="en" href="${config.brand.url}${route(page, "en")}">
+    <link rel="alternate" hreflang="es" href="${config.brand.url}${route(page, "es")}">
+    <link rel="alternate" hreflang="x-default" href="${config.brand.url}${route(page, "en")}">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="${config.brand.favicon}">
@@ -54,8 +91,12 @@ function generateMetaTags(page) {
     <meta property="og:title" content="${title}">
     <meta property="og:description" content="${description}">
     <meta property="og:image" content="${config.brand.url}${config.seo.ogImage}">
-    ${isHome ? `<meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">` : ''}
+    ${
+      isHome
+        ? `<meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">`
+        : ""
+    }
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
@@ -66,7 +107,7 @@ function generateMetaTags(page) {
 
     <!-- Theme color -->
     <meta name="theme-color" content="${config.colors.blush}">
-    ${isHome ? `<meta name="msapplication-TileColor" content="${config.colors.blush}">` : ''}
+    ${isHome ? `<meta name="msapplication-TileColor" content="${config.colors.blush}">` : ""}
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -74,26 +115,31 @@ function generateMetaTags(page) {
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="${asset('styles.css')}">`;
+    <link rel="stylesheet" href="${asset("styles.css")}">`;
 }
 
 // Helper to generate nav
 function generateNav(activePage) {
-    return `    <nav>
-        <a href="/"${activePage === 'home' ? ' class="active"' : ''}>Home</a>
-        <a href="/privacy"${activePage === 'privacy' ? ' class="active"' : ''}>Privacy</a>
-        <a href="/support"${activePage === 'support' ? ' class="active"' : ''}>Support</a>
+  return `    <nav aria-label="${locale === "es" ? "Navegación principal" : "Main navigation"}">
+        <a href="${route("home")}"${activePage === "home" ? ' class="active"' : ""}>${labels[locale].home}</a>
+        <a href="${route("privacy")}"${activePage === "privacy" ? ' class="active"' : ""}>${labels[locale].privacy}</a>
+        <a href="${route("support")}"${activePage === "support" ? ' class="active"' : ""}>${labels[locale].support}</a>
+        <a href="${route(activePage, locale === "en" ? "es" : "en")}" lang="${locale === "en" ? "es" : "en"}" class="language-switch">${locale === "en" ? "Español" : "English"}</a>
     </nav>`;
 }
 
 // Helper to generate footer
 function generateFooter() {
-    const links = config.footer.links.map(link => {
-        const href = link.url.includes('@') ? `mailto:${config.contact.email}` : link.url;
-        return `            <a href="${href}">${link.text}</a>`;
-    }).join('\n');
+  const links = config.footer.links
+    .map((link) => {
+      const href = link.url.includes("@")
+        ? `mailto:${config.contact.email}`
+        : link.url;
+      return `            <a href="${href}">${link.text}</a>`;
+    })
+    .join("\n");
 
-    return `    <footer>
+  return `    <footer>
         <div class="footer-logo">${config.brand.name}</div>
         <div class="footer-links">
 ${links}
@@ -104,28 +150,32 @@ ${links}
 
 // Helper to generate brand name with highlight
 function generateBrandName() {
-    const name = config.brand.name;
-    const highlight = config.brand.nameHighlight;
-    if (highlight && name.includes(highlight)) {
-        const parts = name.split(highlight);
-        return `${parts[0]}<span class="highlight">${highlight}</span>${parts[1] || ''}`;
-    }
-    return name;
+  const name = config.brand.name;
+  const highlight = config.brand.nameHighlight;
+  if (highlight && name.includes(highlight)) {
+    const parts = name.split(highlight);
+    return `${parts[0]}<span class="highlight">${highlight}</span>${parts[1] || ""}`;
+  }
+  return name;
 }
 
 // Generate index.html
 function generateIndex() {
-    const features = config.features.items.map(f => `            <div class="feature-card">
+  const features = config.features.items
+    .map(
+      (f) => `            <div class="feature-card">
 
                 <h3>${f.title}</h3>
                 <p>${f.description}</p>
-${f.image ? `                <img class="feature-screenshot" src="${f.image}" alt="${f.altText}" loading="lazy">` : ''}
-            </div>`).join('\n\n');
+${f.image ? `                <img class="feature-screenshot" src="${f.image}" alt="${f.altText}" loading="lazy">` : ""}
+            </div>`,
+    )
+    .join("\n\n");
 
-    return `<!DOCTYPE html>
-<html lang="en">
+  return `<!DOCTYPE html>
+<html lang="${locale}">
 <head>
-${generateMetaTags('home')}
+${generateMetaTags("home")}
 </head>
 <body class="page-home">
     <div class="cat-toy" id="catToy" aria-hidden="true">
@@ -133,7 +183,7 @@ ${generateMetaTags('home')}
         <div class="toy-ball"></div>
     </div>
     <!-- Navigation -->
-${generateNav('home')}
+${generateNav("home")}
 
     <!-- Hero Section -->
     <section class="hero">
@@ -147,7 +197,7 @@ ${generateNav('home')}
                 <span class="icon">${config.hero.ctaIcon}</span>
                 ${config.hero.ctaText}
             </a>
-            <p class="availability">In development for iPhone.</p>
+            <p class="availability">${labels[locale].availability}</p>
         </div>
     </section>
 
@@ -166,77 +216,84 @@ ${features}
 ${generateFooter()}
 
     <!-- Config and App Scripts -->
-    <script src="${asset('config.js')}"></script>
-    <script src="${asset('toy-physics.js')}"></script>
-    <script src="${asset('app.js')}"></script>
+    <script src="${asset("config.js")}"></script>
+    <script src="${asset("toy-physics.js")}"></script>
+    <script src="${asset("app.js")}"></script>
 </body>
 </html>`;
 }
 
 // Generate privacy/index.html
 function generatePrivacy() {
-    const sections = config.privacy.sections.map(section => {
-        let content = section.content;
-        if (content === 'CONTACT_EMAIL_PLACEHOLDER') {
-            content = `<p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:${config.contact.email}" class="email-link">${config.contact.email}</a></p>`;
-        }
+  const sections = config.privacy.sections
+    .map((section) => {
+      let content = section.content;
+      if (content === "CONTACT_EMAIL_PLACEHOLDER") {
+        content = `<p>${labels[locale].contact} <a href="mailto:${config.contact.email}" class="email-link">${config.contact.email}</a></p>`;
+      }
 
-        const titleHtml = section.title ?
-            `            <h2>${section.icon ? `<span class="icon">${section.icon}</span> ` : ''}${section.title}</h2>\n` : '';
+      const titleHtml = section.title
+        ? `            <h2>${section.icon ? `<span class="icon">${section.icon}</span> ` : ""}${section.title}</h2>\n`
+        : "";
 
-        return `        <div class="content-section">
+      return `        <div class="content-section">
 ${titleHtml}            ${content}
         </div>`;
-    }).join('\n\n');
+    })
+    .join("\n\n");
 
-    return `<!DOCTYPE html>
-<html lang="en">
+  return `<!DOCTYPE html>
+<html lang="${locale}">
 <head>
-${generateMetaTags('privacy')}
+${generateMetaTags("privacy")}
 </head>
 <body class="page-privacy">
     <!-- Navigation -->
-${generateNav('privacy')}
+${generateNav("privacy")}
 
     <main>
         <div class="page-header">
-            <h1>Privacy Policy</h1>
-            <span class="date">Updated ${config.privacy.lastUpdated}</span>
+            <h1>${labels[locale].policy}</h1>
+            <span class="date">${labels[locale].updated} ${config.privacy.lastUpdated}</span>
         </div>
 
 ${sections}
 
-        <a href="/" class="back-link">← Back to Home</a>
+        <a href="${route("home")}" class="back-link">${labels[locale].back}</a>
     </main>
 
     <!-- Footer -->
 ${generateFooter()}
 
     <!-- Config and App Scripts -->
-    <script src="${asset('config.js')}"></script>
-    <script src="${asset('toy-physics.js')}"></script>
-    <script src="${asset('app.js')}"></script>
+    <script src="${asset("config.js")}"></script>
+    <script src="${asset("toy-physics.js")}"></script>
+    <script src="${asset("app.js")}"></script>
 </body>
 </html>`;
 }
 
 // Generate support/index.html
 function generateSupport() {
-    const faqs = config.support.faqs.map(faq => `            <div class="faq-item">
+  const faqs = config.support.faqs
+    .map(
+      (faq) => `            <div class="faq-item">
                 <button class="faq-question">${faq.question}</button>
                 <div class="faq-answer">
                     <p>${faq.answer}</p>
                 </div>
-            </div>`).join('\n\n');
+            </div>`,
+    )
+    .join("\n\n");
 
-    return `<!DOCTYPE html>
-<html lang="en">
+  return `<!DOCTYPE html>
+<html lang="${locale}">
 <head>
-${generateMetaTags('support')}
+${generateMetaTags("support")}
 </head>
 <body class="page-support">
     <!-- Navigation -->
-${generateNav('support')}
+${generateNav("support")}
 
     <main>
         <div class="page-header">
@@ -254,49 +311,34 @@ ${faqs}
             <a href="mailto:${config.contact.email}" class="email-link">${config.contact.email}</a>
         </div>
 
-        <a href="/" class="back-link">← Back to Home</a>
+        <a href="${route("home")}" class="back-link">${labels[locale].back}</a>
     </main>
 
     <!-- Footer -->
 ${generateFooter()}
 
     <!-- Config and App Scripts -->
-    <script src="${asset('config.js')}"></script>
-    <script src="${asset('toy-physics.js')}"></script>
-    <script src="${asset('app.js')}"></script>
+    <script src="${asset("config.js")}"></script>
+    <script src="${asset("toy-physics.js")}"></script>
+    <script src="${asset("app.js")}"></script>
 </body>
 </html>`;
 }
 
 // Generate sitemap.xml
 function generateSitemap() {
-    const today = new Date().toISOString().split('T')[0];
-    return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>${config.brand.url}/</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>${config.brand.url}/privacy</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>${config.brand.url}/support</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-</urlset>`;
+  const urls = ["en", "es"].flatMap((language) =>
+    ["home", "privacy", "support"].map(
+      (page) =>
+        `<url><loc>${englishConfig.brand.url}${route(page, language)}</loc></url>`,
+    ),
+  );
+  return `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.join("")}</urlset>`;
 }
 
 // Generate robots.txt
 function generateRobots() {
-    return `User-agent: *
+  return `User-agent: *
 Allow: /
 
 Sitemap: ${config.brand.url}/sitemap.xml`;
@@ -304,11 +346,13 @@ Sitemap: ${config.brand.url}/sitemap.xml`;
 
 // Generate llms.txt
 function generateLlms() {
-    const features = config.features.items.map(f => `- ${f.title}: ${f.description.split('.')[0]}`).join('\n');
+  const features = config.features.items
+    .map((f) => `- ${f.title}: ${f.description.split(".")[0]}`)
+    .join("\n");
 
-    return `# ${config.brand.name}
+  return `# ${config.brand.name}
 
-> ${config.brand.shortTagline || config.brand.tagline.split('.')[0]}
+> ${config.brand.shortTagline || config.brand.tagline.split(".")[0]}
 
 ${config.brand.tagline}
 
@@ -335,41 +379,34 @@ ${config.hero.ctaText}.
 
 // Main build function
 function build() {
-    console.log('🔨 Building site from config.js...\n');
-
-    // Generate and write index.html
-    fs.writeFileSync(path.join(__dirname, 'index.html'), generateIndex());
-    console.log('✅ index.html');
-
-    // Ensure privacy directory exists
-    const privacyDir = path.join(__dirname, 'privacy');
-    if (!fs.existsSync(privacyDir)) {
-        fs.mkdirSync(privacyDir);
+  const spanish = require("./config.es.js");
+  for (const language of ["en", "es"]) {
+    locale = language;
+    config = structuredClone(englishConfig);
+    if (language === "es") {
+      for (const [key, value] of Object.entries(spanish))
+        config[key] = { ...config[key], ...value };
     }
-    fs.writeFileSync(path.join(privacyDir, 'index.html'), generatePrivacy());
-    console.log('✅ privacy/index.html');
-
-    // Ensure support directory exists
-    const supportDir = path.join(__dirname, 'support');
-    if (!fs.existsSync(supportDir)) {
-        fs.mkdirSync(supportDir);
+    config.features.items =
+      language === "en"
+        ? screenshotFeatures.features
+        : require("./screenshot-features.es.json").features;
+    for (const [page, generate] of [
+      ["home", generateIndex],
+      ["privacy", generatePrivacy],
+      ["support", generateSupport],
+    ]) {
+      const directory = path.join(__dirname, route(page));
+      fs.mkdirSync(directory, { recursive: true });
+      fs.writeFileSync(path.join(directory, "index.html"), generate());
     }
-    fs.writeFileSync(path.join(supportDir, 'index.html'), generateSupport());
-    console.log('✅ support/index.html');
-
-    // Generate sitemap.xml
-    fs.writeFileSync(path.join(__dirname, 'sitemap.xml'), generateSitemap());
-    console.log('✅ sitemap.xml');
-
-    // Generate robots.txt
-    fs.writeFileSync(path.join(__dirname, 'robots.txt'), generateRobots());
-    console.log('✅ robots.txt');
-
-    // Generate llms.txt
-    fs.writeFileSync(path.join(__dirname, 'llms.txt'), generateLlms());
-    console.log('✅ llms.txt');
-
-    console.log('\n🎉 Build complete! Commit and push to deploy.');
+  }
+  locale = "en";
+  config = structuredClone(englishConfig);
+  config.features.items = screenshotFeatures.features;
+  fs.writeFileSync(path.join(__dirname, "sitemap.xml"), generateSitemap());
+  fs.writeFileSync(path.join(__dirname, "robots.txt"), generateRobots());
+  fs.writeFileSync(path.join(__dirname, "llms.txt"), generateLlms());
+  console.log("Built English and Spanish home, support and privacy pages.");
 }
-
 build();
