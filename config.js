@@ -107,7 +107,7 @@ const CONFIG = {
             {
                 icon: "📱",
                 title: "Account and contributions",
-                content: "<p>Clerk manages sign-in with email or Apple. Our Convex backend stores your sign-in identifier and the account information you provide, such as your email, username, name or photo, country, and preferences.</p><p>When you use the app, we store your contributions and activity, including reviews, ratings, photos, comments, saved places, visits, follows, events, and corrections to place information.</p>"
+                content: "<p>Clerk manages sign-in with email or Apple. Our Convex backend stores your sign-in identifier and the account information you provide, such as your email, username, name or photo, country, and preferences.</p><p>When you use the app, we store your contributions and activity, including reviews, ratings, photos, comments, saved places, visits, follows, events, and corrections to place information. We also store reports you submit, moderation decisions, and your blocked-user preferences.</p>"
             },
             {
                 icon: "📍",
@@ -117,7 +117,7 @@ const CONFIG = {
             {
                 icon: "👀",
                 title: "Visibility and sharing",
-                content: "<p>Your profile and contributions have visibility settings. Profile settings and review visibility are separate: changing your profile visibility does not necessarily change every review.</p><p>A public profile can show information such as your username, name or photo, country, and visible contributions. Account email addresses and sign-in identifiers are not included in public profile responses. We do not sell your personal information.</p>"
+                content: "<p>Your profile and contributions have visibility settings. Profile settings and review visibility are separate: changing your profile visibility does not necessarily change every review.</p><p>A public profile can show information such as your username, name or photo, country, and visible contributions. Account email addresses and sign-in identifiers are not included in public profile responses. Reports and block preferences are not public. Moderators can inspect reported shared content and submissions held for publication review. We do not sell your personal information.</p>"
             },
             {
                 icon: "🔗",
@@ -158,7 +158,7 @@ const CONFIG = {
             },
             {
                 question: "How do I add a review?",
-                answer: "Open the Review tab, choose a place, and record your cocktail with a rating, notes, and optional photos. Check the selected catalog and visibility before submitting."
+                answer: "Open the Review tab, choose a place, and record your cocktail with a rating, notes, and optional photos. Check the selected catalog and visibility before submitting. Shared submissions may be held for moderation before publication; Settings shows pending submissions and lets you withdraw them."
             },
             {
                 question: "Can I edit or remove my reviews?",
@@ -170,7 +170,7 @@ const CONFIG = {
             },
             {
                 question: "How do I report a problem or inappropriate content?",
-                answer: "Email support@sourpuss.app with the relevant place or review and a description of the problem. Do not send passwords or payment-card details."
+                answer: "While signed in, use Report or block on a review, comment, event, or profile in a follow list. Choose a reason and send your report, or confirm a block. Manage blocked users in Settings. You can also email support@sourpuss.app with the relevant content and a description of the problem. Do not send passwords or payment-card details."
             },
             {
                 question: "What does Network Pro include?",
