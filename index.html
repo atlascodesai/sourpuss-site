@@ -39,9 +39,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="/styles.css?v=e54466d69d">
+    <link rel="stylesheet" href="/styles.css?v=8c63fe04dd">
 </head>
 <body class="page-home">
+    <div class="cat-toy" id="catToy" aria-hidden="true">
+        <svg viewBox="0 0 320 220"><path class="toy-string" d="M 160 0 L 160 160"/></svg>
+        <div class="toy-ball"></div>
+    </div>
     <!-- Navigation -->
     <nav>
         <a href="/" class="active">Home</a>
@@ -55,21 +59,13 @@
 
         <div class="hero-content">
             <img src="/logo.png" alt="Sourpuss" class="hero-logo">
-            <h1>Sourpuss</h1>
+            <h1>Sour<span class="highlight">puss</span></h1>
             <p class="tagline">A good whisky sour is worth remembering. Find your next one. Keep notes on the last.</p>
             <a href="#features" class="cta-button">
                 <span class="icon"></span>
                 Explore Sourpuss
             </a>
             <p class="availability">In development for iPhone.</p>
-        </div>
-        <div class="toy-stage">
-            <div class="cat-toy" id="catToy">
-                <svg viewBox="0 0 400 420" aria-hidden="true"><path class="toy-string" d="M 200 0 L 200 260"/></svg>
-                <button type="button" class="toy-ball" aria-label="Play with the wool ball" aria-describedby="toyHint"><span class="toy-ball-connector"></span></button>
-            </div>
-            <p id="toyHint">Go on. Give it a tug.</p>
-            <p class="toy-help">Drag &amp; release. Or use the arrow keys.</p>
         </div>
     </section>
 
@@ -118,8 +114,8 @@
     </footer>
 
     <!-- Config and App Scripts -->
-    <script src="/config.js?v=811193e51d"></script>
-    <script src="/toy-physics.js?v=0d1de9781e"></script>
-    <script src="/app.js?v=9419b640e2"></script>
+    <script src="/config.js?v=b513b557f9"></script>
+    <script src="/toy-physics.js?v=4bb25e0918"></script>
+    <script src="/app.js?v=38b3092fa2"></script>
 </body>
 </html>

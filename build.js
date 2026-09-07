@@ -125,6 +125,10 @@ function generateIndex() {
 ${generateMetaTags('home')}
 </head>
 <body class="page-home">
+    <div class="cat-toy" id="catToy" aria-hidden="true">
+        <svg viewBox="0 0 320 220"><path class="toy-string" d="M 160 0 L 160 160"/></svg>
+        <div class="toy-ball"></div>
+    </div>
     <!-- Navigation -->
 ${generateNav('home')}
 
@@ -141,14 +145,6 @@ ${generateNav('home')}
                 ${config.hero.ctaText}
             </a>
             <p class="availability">In development for iPhone.</p>
-        </div>
-        <div class="toy-stage">
-            <div class="cat-toy" id="catToy">
-                <svg viewBox="0 0 400 420" aria-hidden="true"><path class="toy-string" d="M 200 0 L 200 260"/></svg>
-                <button type="button" class="toy-ball" aria-label="Play with the wool ball" aria-describedby="toyHint"><span class="toy-ball-connector"></span></button>
-            </div>
-            <p id="toyHint">Go on. Give it a tug.</p>
-            <p class="toy-help">Drag &amp; release. Or use the arrow keys.</p>
         </div>
     </section>
 

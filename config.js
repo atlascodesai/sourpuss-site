@@ -3,7 +3,7 @@ const CONFIG = {
     // Brand
     brand: {
         name: "Sourpuss",
-        nameHighlight: "", // Part of name to highlight (italic + underline)
+        nameHighlight: "puss", // Part of name to highlight (italic + underline)
         tagline: "A good whisky sour is worth remembering. Find your next one. Keep notes on the last.",
         shortTagline: "Find and rate the best whisky sours in your city",
         logo: "/logo.png",

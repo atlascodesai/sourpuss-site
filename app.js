@@ -19,82 +19,70 @@
 
     const toy = document.getElementById('catToy');
     if (!toy) return;
-    if (!config.catToy.enabled) { toy.parentElement.hidden = true; return; }
+    if (!config.catToy.enabled) { toy.hidden = true; return; }
     const ball = toy.querySelector('.toy-ball');
     const string = toy.querySelector('.toy-string');
     const physics = window.ToyPhysics;
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const LENGTH = 260;
+    const LENGTH = 160;
     let state = { angle: 0, velocity: 0 };
     let frame = 0;
     let lastTime = 0;
-    let dragging = false;
-    let lastDragTime = 0;
-    let pointerId = null;
+    let previous = null;
 
     function render() {
-        const x = 200 + Math.sin(state.angle) * LENGTH;
+        const x = 160 + Math.sin(state.angle) * LENGTH;
         const y = Math.cos(state.angle) * LENGTH;
-        string.setAttribute('d', `M 200 0 L ${x} ${y}`);
-        ball.style.left = `${x / 4}%`;
-        ball.style.top = `${y / 4.2}%`;
+        string.setAttribute('d', `M 160 0 L ${x} ${y}`);
+        ball.style.left = `${x / 3.2}%`;
+        ball.style.top = `${y / 2.2}%`;
         ball.style.transform = `translate(-50%, -50%) rotate(${-state.angle * 120}deg)`;
     }
     function tick(time) {
         frame = 0;
-        if (dragging || document.hidden) return;
+        if (document.hidden) return;
         state = physics.advance(state, (time - lastTime) / 1000);
         lastTime = time;
         render();
         if (state.angle || state.velocity) frame = requestAnimationFrame(tick);
     }
     function start() {
-        if (frame || dragging || document.hidden) return;
+        if (frame || document.hidden) return;
         if (reducedMotion.matches) { state = { angle: 0, velocity: 0 }; render(); return; }
         lastTime = performance.now();
         frame = requestAnimationFrame(tick);
     }
     function stop() { cancelAnimationFrame(frame); frame = 0; }
-    ball.addEventListener('pointerdown', function (event) {
-        if (event.button !== 0 || dragging) return;
-        stop();
-        dragging = true;
-        pointerId = event.pointerId;
-        state.velocity = 0;
-        lastDragTime = performance.now();
-        ball.setPointerCapture(pointerId);
-        ball.classList.add('dragging');
-    });
-    ball.addEventListener('pointermove', function (event) {
-        if (!dragging || event.pointerId !== pointerId) return;
-        const rect = toy.getBoundingClientRect();
-        const angle = physics.clamp(Math.atan2(event.clientX - rect.left - rect.width / 2, Math.max(30, event.clientY - rect.top)), -physics.MAX_ANGLE, physics.MAX_ANGLE);
-        const time = performance.now();
-        state.velocity = physics.clamp((angle - state.angle) / Math.max(0.016, (time - lastDragTime) / 1000), -7, 7);
-        state.angle = angle;
-        lastDragTime = time;
-        render();
-    });
-    function release(event) {
-        if (!dragging || event.pointerId !== pointerId) return;
-        dragging = false;
-        if (event.type !== 'pointerup' || performance.now() - lastDragTime > 100) state.velocity = 0;
-        ball.classList.remove('dragging');
-        if (ball.hasPointerCapture(pointerId)) ball.releasePointerCapture(pointerId);
-        pointerId = null;
-        start();
+    function brush(x, y, time) {
+        const point = { x, y, time };
+        if (previous && time - previous.time < 150 && !reducedMotion.matches) {
+            const rect = ball.getBoundingClientRect();
+            const impulse = physics.brushImpulse(previous, point, {
+                x: rect.left + rect.width / 2,
+                y: rect.top + rect.height / 2,
+                radius: rect.width / 2 + 16
+            });
+            if (impulse) {
+                state.velocity = physics.clamp(state.velocity + impulse, -7, 7);
+                start();
+            }
+        }
+        previous = point;
     }
-    ['pointerup', 'pointercancel', 'lostpointercapture'].forEach(function (type) { ball.addEventListener(type, release); });
-    ball.addEventListener('keydown', function (event) {
-        if (!['ArrowLeft', 'ArrowRight', 'Escape'].includes(event.key)) return;
-        event.preventDefault();
-        if (event.key === 'Escape') { stop(); state = { angle: 0, velocity: 0 }; render(); return; }
-        state.velocity = physics.clamp(state.velocity + (event.key === 'ArrowLeft' ? -3 : 3), -7, 7);
-        start();
-    });
-    ball.addEventListener('click', function (event) {
-        if (event.detail === 0) { state.velocity += 3; start(); }
-    });
+    document.addEventListener('pointermove', function (event) {
+        if (event.pointerType === 'touch') return;
+        brush(event.clientX, event.clientY, performance.now());
+    }, { passive: true });
+    // Observe touches without capturing them or preventing normal page scrolling.
+    document.addEventListener('touchstart', function (event) {
+        const touch = event.touches[0];
+        previous = { x: touch.clientX, y: touch.clientY, time: performance.now() };
+    }, { passive: true });
+    document.addEventListener('touchmove', function (event) {
+        const touch = event.touches[0];
+        if (touch) brush(touch.clientX, touch.clientY, performance.now());
+    }, { passive: true });
+    document.addEventListener('touchend', function () { previous = null; }, { passive: true });
     document.addEventListener('visibilitychange', function () { if (document.hidden) stop(); else start(); });
     reducedMotion.addEventListener('change', function () { stop(); start(); });
     render();
