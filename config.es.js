@@ -73,7 +73,7 @@ module.exports = {
   support: {
     title: "Ayuda",
     subtitle:
-      "¿Tienes dudas sobre tu cuenta, las reseñas o Network Pro? Empieza aquí.",
+      "¿Tienes dudas sobre tu cuenta, las reseñas o Sourpuss Pro? Empieza aquí.",
     faqs: [
       {
         question: "¿Cómo creo una cuenta?",
@@ -101,9 +101,9 @@ module.exports = {
           "Con la sesión iniciada, utiliza Denunciar o bloquear en una reseña, comentario, evento o perfil de una lista de seguidores. Elige un motivo y envía la denuncia, o confirma el bloqueo. Puedes gestionar las cuentas bloqueadas en Ajustes. También puedes escribir a support@sourpuss.app con el contenido y una descripción del problema. No envíes contraseñas ni datos de tarjetas.",
       },
       {
-        question: "¿Qué incluye Network Pro?",
+        question: "¿Qué incluye Sourpuss Pro?",
         answer:
-          "Network Pro es una suscripción opcional de renovación automática que permite exportar un diario HTML de tus reseñas y eventos. La exportación JSON de los registros de tu cuenta sigue siendo gratuita. La pantalla de suscripción muestra el precio y las condiciones de renovación antes de comprar.",
+          "Sourpuss Pro es una suscripción opcional de renovación automática que permite exportar un diario HTML de tus reseñas y eventos. La exportación JSON de los registros de tu cuenta sigue siendo gratuita. La pantalla de suscripción muestra el precio y las condiciones de renovación antes de comprar.",
       },
       {
         question: "¿Cómo restauro o cancelo una suscripción?",

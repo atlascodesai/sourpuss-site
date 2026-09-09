@@ -129,7 +129,7 @@ const CONFIG = {
     // Support / FAQ
     support: {
         title: "Support",
-        subtitle: "Questions about your account, reviews, or Network Pro? Start here.",
+        subtitle: "Questions about your account, reviews, or Sourpuss Pro? Start here.",
         faqs: [
             {
                 question: "How do I create an account?",
@@ -152,8 +152,8 @@ const CONFIG = {
                 answer: "While signed in, use Report or block on a review, comment, event, or profile in a follow list. Choose a reason and send your report, or confirm a block. Manage blocked users in Settings. You can also email support@sourpuss.app with the relevant content and a description of the problem. Do not send passwords or payment-card details."
             },
             {
-                question: "What does Network Pro include?",
-                answer: "Network Pro is an optional auto-renewing subscription that unlocks a portable HTML journal of your reviews and events. Your full-record account JSON export remains free. The paywall shows the price and renewal terms before purchase."
+                question: "What does Sourpuss Pro include?",
+                answer: "Sourpuss Pro is an optional auto-renewing subscription that unlocks a portable HTML journal of your reviews and events. Your full-record account JSON export remains free. The paywall shows the price and renewal terms before purchase."
             },
             {
                 question: "How do I restore or cancel a subscription?",
