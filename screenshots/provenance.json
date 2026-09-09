@@ -1,87 +1,158 @@
 {
   "source": {
     "branch": "codex/sourpuss-candidate-22",
-    "commit": "bec2c9516afafc2c66e426137696826e084d1125",
+    "capturedAt": "2026-09-09T16:28:25.186Z",
+    "commit": "9104f3e3a1547f732f32fa2155adf812a588f842",
     "dirty": false,
     "operatingSystem": "Version 26.5 (Build 25F71)",
     "xcodeVersion": "Xcode 26.5; Build version 17F42"
   },
-  "runID": "3e0b6d7efbcfa23d84c9",
-  "pendingProfiles": [
-    "ipad-13"
-  ],
+  "runID": "0558e8768a42e6e2c4b7",
+  "pendingProfiles": [],
   "images": [
     {
-      "sha256": "7837cb7cef0e3d5a9e48cf5bf24a07a68aa1f23a7d89d50162eb0b93cd411b44",
+      "sha256": "7b1abe5e75831644184146587f24153644ad15dcc136048e85cc38e5b0eac843",
       "verdict": "accept",
       "locale": "en-US",
       "profile": "iphone-6.9",
       "screen": "explore",
       "path": "app-store/en-US/iPhone-01_explore.png",
-      "notes": "Málaga map and La Destilería pin remain complete and readable."
+      "notes": "Real Málaga map and La Destilería pin are fully visible; localized controls and caption fit."
     },
     {
-      "sha256": "2feaced93bdf4df1970ac828717780ab70e93b4a6422133b7b62431eeb348302",
+      "sha256": "8dd8db0147bed20d7f30f0c202b37c95a535540c786045539e4df525678a8434",
       "verdict": "accept",
       "locale": "en-US",
       "profile": "iphone-6.9",
       "screen": "journal",
       "path": "app-store/en-US/iPhone-02_journal.png",
-      "notes": "The original square Málaga photo is fully visible from foam to glass base; venue, rating, price, first review line and actions fit the frame."
+      "notes": "Real La Destilería photo shows the complete centered sour; venue, rating, price and actions fit."
     },
     {
-      "sha256": "b73768b928c77977405c12bd944692085a96f328ae9033e3a945382252bc6f02",
+      "sha256": "850c901092c9cf90c9eade61081805fbbe770041e8fd8b90270ca273fcba7588",
       "verdict": "accept",
       "locale": "en-US",
       "profile": "iphone-6.9",
       "screen": "compare",
       "path": "app-store/en-US/iPhone-03_compare.png",
-      "notes": "Both real reviews and their square thumbnails remain visible."
+      "notes": "Two populated La Destilería reviews, real Málaga photos, rating and actions are readable."
     },
     {
-      "sha256": "6431b5519926f2150c8ccd7070ebe9635f50ffc42de2c7d60a68677b1cf5edd6",
+      "sha256": "e9c78e63c05f990f9c8e84c490256f6736874406c79df424f843063672c1df8a",
       "verdict": "accept",
       "locale": "en-US",
       "profile": "iphone-6.9",
       "screen": "saved",
       "path": "app-store/en-US/iPhone-04_saved.png",
-      "notes": "Real saved La Destilería venue remains complete and readable."
+      "notes": "Real saved La Destilería venue and localized profile controls are complete and readable."
     },
     {
-      "sha256": "ed40b6761a6a813546c7cb104f516f21834db0e903508c9eb15f13480db48032",
+      "sha256": "05d35e2c3096929d83e0e6683f08b842ded06257525d8e5b365549456d427a71",
+      "verdict": "accept",
+      "locale": "en-US",
+      "profile": "ipad-13",
+      "screen": "explore",
+      "path": "app-store/en-US/iPad-01_explore.png",
+      "notes": "Real Málaga map and venue pin fill the iPad frame with correct glyphs and localized controls."
+    },
+    {
+      "sha256": "24754955218170e6f6d0d43c857cd94aca448d1bad05ebd449d46b4da545b14a",
+      "verdict": "accept",
+      "locale": "en-US",
+      "profile": "ipad-13",
+      "screen": "journal",
+      "path": "app-store/en-US/iPad-02_journal.png",
+      "notes": "Real La Destilería photo is uncropped across the iPad frame with the sour centered and fully visible."
+    },
+    {
+      "sha256": "263d9391481a4d17606c6eb9b45b3ebceffdd98960fdae2bd17d60f5ab1593e4",
+      "verdict": "accept",
+      "locale": "en-US",
+      "profile": "ipad-13",
+      "screen": "compare",
+      "path": "app-store/en-US/iPad-03_compare.png",
+      "notes": "Venue details and two populated reviews are readable; the full native iPad layout remains visible."
+    },
+    {
+      "sha256": "133dc7cb7208f143611adc8647d0ec793244128fa0f5b62cf6bd5a70e89a27e2",
+      "verdict": "accept",
+      "locale": "en-US",
+      "profile": "ipad-13",
+      "screen": "saved",
+      "path": "app-store/en-US/iPad-04_saved.png",
+      "notes": "Saved La Destilería venue and localized profile controls are complete in the full native iPad layout."
+    },
+    {
+      "sha256": "173a977e3f5f2a9582736983efac1a39d1875b8e6c8a2762a70ebad2a6049803",
       "verdict": "accept",
       "locale": "es-ES",
       "profile": "iphone-6.9",
       "screen": "explore",
       "path": "app-store/es-ES/iPhone-01_explore.png",
-      "notes": "Spanish Málaga map and La Destilería pin remain complete and readable."
+      "notes": "Real Málaga map and La Destilería pin are fully visible; localized controls and caption fit."
     },
     {
-      "sha256": "11effa30be86716eeef51da1374f92f601b8e55ba60e93005a98acd821608855",
+      "sha256": "a174afff71577b0871047803f3ead419624b45ef88b3ff40bfc9b175bc676528",
       "verdict": "accept",
       "locale": "es-ES",
       "profile": "iphone-6.9",
       "screen": "journal",
       "path": "app-store/es-ES/iPhone-02_journal.png",
-      "notes": "The original square Málaga photo is fully visible from foam to glass base; Spanish chrome, rating, price, first review line and actions fit the frame."
+      "notes": "Real La Destilería photo shows the complete centered sour; venue, rating, price and actions fit."
     },
     {
-      "sha256": "a5883b467a0c87a24073bfa6fca8c0e2e8d6ceaa5544dfde1fa2f3f868352d09",
+      "sha256": "c6f196d727823bc344dbb99e794bc05f7b5d425ecf61d2628699709eb4bc4919",
       "verdict": "accept",
       "locale": "es-ES",
       "profile": "iphone-6.9",
       "screen": "compare",
       "path": "app-store/es-ES/iPhone-03_compare.png",
-      "notes": "Both real reviews and their square thumbnails remain visible in Spanish."
+      "notes": "Two populated La Destilería reviews, real Málaga photos, rating and actions are readable."
     },
     {
-      "sha256": "4eeb68ba2f1906698d2f8f03e72bad290f4dd22e1356ca92d745dbb1a0208b7a",
+      "sha256": "9912d92ef57213a5eb913fea59486f4bcd1f22d6aa9668074fa7cca56053409d",
       "verdict": "accept",
       "locale": "es-ES",
       "profile": "iphone-6.9",
       "screen": "saved",
       "path": "app-store/es-ES/iPhone-04_saved.png",
-      "notes": "Real saved La Destilería venue remains complete and readable in Spanish."
+      "notes": "Real saved La Destilería venue and localized profile controls are complete and readable."
+    },
+    {
+      "sha256": "b7bb3b2c822d8a6a0866503bebcf747dbbcdf43debb48c3df16e8301f00e301a",
+      "verdict": "accept",
+      "locale": "es-ES",
+      "profile": "ipad-13",
+      "screen": "explore",
+      "path": "app-store/es-ES/iPad-01_explore.png",
+      "notes": "Real Málaga map and venue pin fill the iPad frame with correct glyphs and localized controls."
+    },
+    {
+      "sha256": "d96c2ab2ddc855225356152048059f525fa3f56d7813e185e24eba764de1c5cb",
+      "verdict": "accept",
+      "locale": "es-ES",
+      "profile": "ipad-13",
+      "screen": "journal",
+      "path": "app-store/es-ES/iPad-02_journal.png",
+      "notes": "Real La Destilería photo is uncropped across the iPad frame with the sour centered and fully visible."
+    },
+    {
+      "sha256": "7ce37b4858c23e889ede0162a493a57f0c39aff270fa36866dd7065596704969",
+      "verdict": "accept",
+      "locale": "es-ES",
+      "profile": "ipad-13",
+      "screen": "compare",
+      "path": "app-store/es-ES/iPad-03_compare.png",
+      "notes": "Venue details and two populated reviews are readable; the full native iPad layout remains visible."
+    },
+    {
+      "sha256": "a3cb7b3b936bcf1d8f98ba713afbcb35e4e2ea4771ca6dbdd0952cdf2725ca92",
+      "verdict": "accept",
+      "locale": "es-ES",
+      "profile": "ipad-13",
+      "screen": "saved",
+      "path": "app-store/es-ES/iPad-04_saved.png",
+      "notes": "Saved La Destilería venue and localized profile controls are complete in the full native iPad layout."
     }
   ]
 }

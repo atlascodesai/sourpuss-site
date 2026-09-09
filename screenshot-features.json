@@ -9,11 +9,12 @@
       "description": "Explore places nearby and save somewhere for another night.",
       "altText": "Explore map showing populated venue pins and search.",
       "image": "/screenshots/en-US/explore-iphone.png",
-      "captureState": "iphone-reviewed-ipad-pending",
+      "captureState": "visually-reviewed",
       "images": {
-        "iphone": "/screenshots/en-US/explore-iphone.png"
+        "iphone": "/screenshots/en-US/explore-iphone.png",
+        "ipad": "/screenshots/en-US/explore-ipad.png"
       },
-      "captureSourceCommit": "bec2c9516afafc2c66e426137696826e084d1125"
+      "captureSourceCommit": "9104f3e3a1547f732f32fa2155adf812a588f842"
     },
     {
       "id": "journal",
@@ -21,11 +22,12 @@
       "description": "Keep a rating, a photo and the details of your drink.",
       "altText": "A saved whisky sour review with rating, tasting notes and photo.",
       "image": "/screenshots/en-US/journal-iphone.png",
-      "captureState": "iphone-reviewed-ipad-pending",
+      "captureState": "visually-reviewed",
       "images": {
-        "iphone": "/screenshots/en-US/journal-iphone.png"
+        "iphone": "/screenshots/en-US/journal-iphone.png",
+        "ipad": "/screenshots/en-US/journal-ipad.png"
       },
-      "captureSourceCommit": "bec2c9516afafc2c66e426137696826e084d1125"
+      "captureSourceCommit": "9104f3e3a1547f732f32fa2155adf812a588f842"
     },
     {
       "id": "compare",
@@ -33,11 +35,12 @@
       "description": "Read community reviews before choosing your next stop.",
       "altText": "Venue details showing populated community reviews.",
       "image": "/screenshots/en-US/compare-iphone.png",
-      "captureState": "iphone-reviewed-ipad-pending",
+      "captureState": "visually-reviewed",
       "images": {
-        "iphone": "/screenshots/en-US/compare-iphone.png"
+        "iphone": "/screenshots/en-US/compare-iphone.png",
+        "ipad": "/screenshots/en-US/compare-ipad.png"
       },
-      "captureSourceCommit": "bec2c9516afafc2c66e426137696826e084d1125"
+      "captureSourceCommit": "9104f3e3a1547f732f32fa2155adf812a588f842"
     },
     {
       "id": "saved",
@@ -45,11 +48,12 @@
       "description": "Save the places you want to try and the ones you would visit again.",
       "altText": "Saved places list showing La Destilería in Málaga.",
       "image": "/screenshots/en-US/saved-iphone.png",
-      "captureState": "iphone-reviewed-ipad-pending",
+      "captureState": "visually-reviewed",
       "images": {
-        "iphone": "/screenshots/en-US/saved-iphone.png"
+        "iphone": "/screenshots/en-US/saved-iphone.png",
+        "ipad": "/screenshots/en-US/saved-ipad.png"
       },
-      "captureSourceCommit": "bec2c9516afafc2c66e426137696826e084d1125"
+      "captureSourceCommit": "9104f3e3a1547f732f32fa2155adf812a588f842"
     }
   ]
 }
