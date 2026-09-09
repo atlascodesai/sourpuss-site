@@ -12,7 +12,7 @@
       "images": {
         "iphone": "/screenshots/es-ES/explore-iphone.png"
       },
-      "captureSourceCommit": "81c81c6783aae77fe3608113642add31a1168531"
+      "captureSourceCommit": "aa3549f25bd7d235ab7c2572e43c758355979507"
     },
     {
       "id": "journal",
@@ -24,7 +24,7 @@
       "images": {
         "iphone": "/screenshots/es-ES/journal-iphone.png"
       },
-      "captureSourceCommit": "81c81c6783aae77fe3608113642add31a1168531"
+      "captureSourceCommit": "aa3549f25bd7d235ab7c2572e43c758355979507"
     },
     {
       "id": "compare",
@@ -36,19 +36,19 @@
       "images": {
         "iphone": "/screenshots/es-ES/compare-iphone.png"
       },
-      "captureSourceCommit": "81c81c6783aae77fe3608113642add31a1168531"
+      "captureSourceCommit": "aa3549f25bd7d235ab7c2572e43c758355979507"
     },
     {
       "id": "saved",
       "title": "Guarda una lista",
       "description": "Guarda los lugares que quieres probar y aquellos a los que volverías.",
-      "altText": "Lista de lugares guardados con varios locales.",
+      "altText": "Lista de lugares guardados con La Destilería en Málaga.",
       "image": "/screenshots/es-ES/saved-iphone.png",
       "captureState": "iphone-reviewed-ipad-pending",
       "images": {
         "iphone": "/screenshots/es-ES/saved-iphone.png"
       },
-      "captureSourceCommit": "81c81c6783aae77fe3608113642add31a1168531"
+      "captureSourceCommit": "aa3549f25bd7d235ab7c2572e43c758355979507"
     }
   ]
 }
