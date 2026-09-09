@@ -1,0 +1,87 @@
+{
+  "source": {
+    "branch": "codex/sourpuss-candidate-22",
+    "commit": "81c81c6783aae77fe3608113642add31a1168531",
+    "dirty": false,
+    "operatingSystem": "Version 26.5 (Build 25F71)",
+    "xcodeVersion": "Xcode 26.5; Build version 17F42"
+  },
+  "runID": "f9885710b3d0ed481a39",
+  "pendingProfiles": [
+    "ipad-13"
+  ],
+  "images": [
+    {
+      "sha256": "bea41dfba19de1093ce08eeed865d48b7129773634fa07806d3814262c0f7d06",
+      "verdict": "accept",
+      "locale": "en-US",
+      "profile": "iphone-6.9",
+      "screen": "explore",
+      "path": "app-store/en-US/iPhone-01_explore.png",
+      "notes": "Peach Sourpuss frame and complete headline/caption; populated native Madrid map, translated catalog controls. Dense native pin overlap remains visible and is not edited out."
+    },
+    {
+      "sha256": "856c3fa9bd45243739b973454de37b611cc0dbde04b1c4d8928e3670f1e4d9ce",
+      "verdict": "accept",
+      "locale": "en-US",
+      "profile": "iphone-6.9",
+      "screen": "journal",
+      "path": "app-store/en-US/iPhone-02_journal.png",
+      "notes": "Complete headline and caption; drink photo, author, review text, localized price/date and bottom actions remain readable within the frame."
+    },
+    {
+      "sha256": "4f13d52505f4c87247296dccbe03b1ea5c7cfa87604a929bb39bd5290a27283c",
+      "verdict": "accept",
+      "locale": "en-US",
+      "profile": "iphone-6.9",
+      "screen": "compare",
+      "path": "app-store/en-US/iPhone-03_compare.png",
+      "notes": "Complete headline and caption; rating label fits below glasses without divider overlap; all three review excerpts and bottom actions remain readable."
+    },
+    {
+      "sha256": "96ce7a73098a7223a80c4df34f14b3b4521795188d796dedf65e6b3b49c546e8",
+      "verdict": "accept",
+      "locale": "en-US",
+      "profile": "iphone-6.9",
+      "screen": "saved",
+      "path": "app-store/en-US/iPhone-04_saved.png",
+      "notes": "Complete headline and caption; three complete saved venue cards and natural continuation, localized labels and numeric ratings."
+    },
+    {
+      "sha256": "5d80d0ecd580968e856c4e2962a44f5e3aa37931088a46bf2056a064aedd4071",
+      "verdict": "accept",
+      "locale": "es-ES",
+      "profile": "iphone-6.9",
+      "screen": "explore",
+      "path": "app-store/es-ES/iPhone-01_explore.png",
+      "notes": "Peach Sourpuss frame and complete headline/caption; populated native Madrid map, translated catalog controls. Dense native pin overlap remains visible and is not edited out."
+    },
+    {
+      "sha256": "82cb839e1c09a4233820d6527c49141b61b926be332e47a08a8952373898fc69",
+      "verdict": "accept",
+      "locale": "es-ES",
+      "profile": "iphone-6.9",
+      "screen": "journal",
+      "path": "app-store/es-ES/iPhone-02_journal.png",
+      "notes": "Complete headline and caption; drink photo, author, review text, localized price/date and bottom actions remain readable within the frame."
+    },
+    {
+      "sha256": "60a05bd32504a08d30ae836b4b38e4b02a2ccf0f3bd6e569ad3013e3f6bfe97a",
+      "verdict": "accept",
+      "locale": "es-ES",
+      "profile": "iphone-6.9",
+      "screen": "compare",
+      "path": "app-store/es-ES/iPhone-03_compare.png",
+      "notes": "Complete headline and caption; rating label fits below glasses without divider overlap; all three review excerpts and bottom actions remain readable."
+    },
+    {
+      "sha256": "1f77a4519393c333b10026dd3ededacbeb0f240d041e282aa3f42dc17652d12b",
+      "verdict": "accept",
+      "locale": "es-ES",
+      "profile": "iphone-6.9",
+      "screen": "saved",
+      "path": "app-store/es-ES/iPhone-04_saved.png",
+      "notes": "Complete headline and caption; three complete saved venue cards and natural continuation, localized labels and numeric ratings."
+    }
+  ]
+}

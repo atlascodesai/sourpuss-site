@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "6a02ff61497e1538ef036e860c6f89a0a8c741cde9c7d24036fe656e819f31aa",
+  "sourceHash": "a8d16c0ba7fb72fea719e4ecfd3413a87452b82c62ded14d40e6b8c42c48b79d",
   "locale": "en-US",
   "features": [
     {
@@ -8,32 +8,48 @@
       "title": "Find a place",
       "description": "Explore places nearby and save somewhere for another night.",
       "altText": "Explore map showing populated venue pins and search.",
-      "image": null,
-      "captureState": "missing"
+      "image": "/screenshots/en-US/explore-iphone.png",
+      "captureState": "iphone-reviewed-ipad-pending",
+      "images": {
+        "iphone": "/screenshots/en-US/explore-iphone.png"
+      },
+      "captureSourceCommit": "81c81c6783aae77fe3608113642add31a1168531"
     },
     {
       "id": "journal",
       "title": "Remember the drink",
       "description": "Keep a rating, a photo and the details of your drink.",
       "altText": "A saved whisky sour review with rating, tasting notes and photo.",
-      "image": null,
-      "captureState": "missing"
+      "image": "/screenshots/en-US/journal-iphone.png",
+      "captureState": "iphone-reviewed-ipad-pending",
+      "images": {
+        "iphone": "/screenshots/en-US/journal-iphone.png"
+      },
+      "captureSourceCommit": "81c81c6783aae77fe3608113642add31a1168531"
     },
     {
       "id": "compare",
       "title": "Compare notes",
       "description": "Read community reviews before choosing your next stop.",
       "altText": "Venue details showing populated community reviews.",
-      "image": null,
-      "captureState": "missing"
+      "image": "/screenshots/en-US/compare-iphone.png",
+      "captureState": "iphone-reviewed-ipad-pending",
+      "images": {
+        "iphone": "/screenshots/en-US/compare-iphone.png"
+      },
+      "captureSourceCommit": "81c81c6783aae77fe3608113642add31a1168531"
     },
     {
       "id": "saved",
       "title": "Keep a list",
       "description": "Save the places you want to try and the ones you would visit again.",
       "altText": "Saved places list with several venues.",
-      "image": null,
-      "captureState": "missing"
+      "image": "/screenshots/en-US/saved-iphone.png",
+      "captureState": "iphone-reviewed-ipad-pending",
+      "images": {
+        "iphone": "/screenshots/en-US/saved-iphone.png"
+      },
+      "captureSourceCommit": "81c81c6783aae77fe3608113642add31a1168531"
     }
   ]
 }

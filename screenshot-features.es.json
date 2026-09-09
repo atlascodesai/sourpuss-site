@@ -6,33 +6,49 @@
       "id": "explore",
       "title": "Encuentra un lugar",
       "description": "Explora lugares cercanos y guarda alguno para otra noche.",
-      "altText": "Mapa de Sourpuss con lugares, marcadores y búsqueda.",
-      "image": null,
-      "captureState": "missing"
+      "altText": "Mapa de Sourpuss con marcadores de lugares y búsqueda.",
+      "image": "/screenshots/es-ES/explore-iphone.png",
+      "captureState": "iphone-reviewed-ipad-pending",
+      "images": {
+        "iphone": "/screenshots/es-ES/explore-iphone.png"
+      },
+      "captureSourceCommit": "81c81c6783aae77fe3608113642add31a1168531"
     },
     {
       "id": "journal",
       "title": "Recuerda la bebida",
       "description": "Guarda una valoración, una foto y los detalles de tu bebida.",
       "altText": "Reseña de un whisky sour con valoración, notas de cata y foto.",
-      "image": null,
-      "captureState": "missing"
+      "image": "/screenshots/es-ES/journal-iphone.png",
+      "captureState": "iphone-reviewed-ipad-pending",
+      "images": {
+        "iphone": "/screenshots/es-ES/journal-iphone.png"
+      },
+      "captureSourceCommit": "81c81c6783aae77fe3608113642add31a1168531"
     },
     {
       "id": "compare",
       "title": "Compara opiniones",
       "description": "Lee las reseñas de la comunidad antes de elegir tu próxima parada.",
       "altText": "Ficha de un lugar con reseñas de la comunidad.",
-      "image": null,
-      "captureState": "missing"
+      "image": "/screenshots/es-ES/compare-iphone.png",
+      "captureState": "iphone-reviewed-ipad-pending",
+      "images": {
+        "iphone": "/screenshots/es-ES/compare-iphone.png"
+      },
+      "captureSourceCommit": "81c81c6783aae77fe3608113642add31a1168531"
     },
     {
       "id": "saved",
       "title": "Guarda una lista",
-      "description": "Guarda los sitios que quieres probar y aquellos a los que volverías.",
-      "altText": "Lista de lugares guardados con varios establecimientos.",
-      "image": null,
-      "captureState": "missing"
+      "description": "Guarda los lugares que quieres probar y aquellos a los que volverías.",
+      "altText": "Lista de lugares guardados con varios locales.",
+      "image": "/screenshots/es-ES/saved-iphone.png",
+      "captureState": "iphone-reviewed-ipad-pending",
+      "images": {
+        "iphone": "/screenshots/es-ES/saved-iphone.png"
+      },
+      "captureSourceCommit": "81c81c6783aae77fe3608113642add31a1168531"
     }
   ]
 }

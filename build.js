@@ -167,7 +167,7 @@ function generateIndex() {
 
                 <h3>${f.title}</h3>
                 <p>${f.description}</p>
-${f.image ? `                <img class="feature-screenshot" src="${f.image}" alt="${f.altText}" loading="lazy">` : ""}
+${f.image ? `                <picture>${f.images?.ipad ? `<source media="(min-width: 1100px)" srcset="${f.images.ipad}">` : ""}<img class="feature-screenshot" src="${f.image}" alt="${f.altText}" loading="lazy"></picture>` : ""}
             </div>`,
     )
     .join("\n\n");

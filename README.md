@@ -10,6 +10,18 @@ A config-driven marketing site for cocktail review apps. Easily white-label for 
 4. Run `node build.js` to regenerate all pages
 5. Commit and push to deploy to GitHub Pages
 
+## Reviewed screenshots
+
+Import a San-rendered bundle with a per-image visual review record, then rebuild:
+
+```sh
+node import-screenshots.js /path/to/san-bundle /path/to/visual-review.json
+node build.js
+node --test *.test.js
+```
+
+The default import requires all four feature screens in English and Spanish on iPhone and iPad. Every image must match San's hash and an accepted visual review. For a documented iPad capture blocker, `--iphone-only` imports the complete bilingual phone set and records `ipad-13` as pending in `screenshots/provenance.json`; it does not claim iPad completion. Adding final iPad artwork uses the normal full-matrix import.
+
 ## File Structure
 
 ```
