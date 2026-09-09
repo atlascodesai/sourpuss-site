@@ -1,87 +1,87 @@
 {
   "source": {
     "branch": "codex/sourpuss-candidate-22",
-    "commit": "aa3549f25bd7d235ab7c2572e43c758355979507",
+    "commit": "bec2c9516afafc2c66e426137696826e084d1125",
     "dirty": false,
     "operatingSystem": "Version 26.5 (Build 25F71)",
     "xcodeVersion": "Xcode 26.5; Build version 17F42"
   },
-  "runID": "bbaac42371ad49e8b9dc",
+  "runID": "3e0b6d7efbcfa23d84c9",
   "pendingProfiles": [
     "ipad-13"
   ],
   "images": [
     {
-      "sha256": "3dc2d93a114f72a4ccbc78ac129927c4709e656cdb5b49a94e21816c8e068192",
+      "sha256": "7837cb7cef0e3d5a9e48cf5bf24a07a68aa1f23a7d89d50162eb0b93cd411b44",
       "verdict": "accept",
       "locale": "en-US",
       "profile": "iphone-6.9",
       "screen": "explore",
       "path": "app-store/en-US/iPhone-01_explore.png",
-      "notes": "Complete English caption; native Málaga map and real La Destilería reviewed-venue pin are visible without loading or provider errors."
+      "notes": "Málaga map and La Destilería pin remain complete and readable."
     },
     {
-      "sha256": "011edc3dfa0ee5322e5b54c8af06ded5277bcc4a6eac0285b2c5b9bae4e64909",
+      "sha256": "2feaced93bdf4df1970ac828717780ab70e93b4a6422133b7b62431eeb348302",
       "verdict": "accept",
       "locale": "en-US",
       "profile": "iphone-6.9",
       "screen": "journal",
       "path": "app-store/en-US/iPhone-02_journal.png",
-      "notes": "Real public La Destilería 5/5 review, original whisky-sour photo, wording, rating and price remain readable."
+      "notes": "The original square Málaga photo is fully visible from foam to glass base; venue, rating, price, first review line and actions fit the frame."
     },
     {
-      "sha256": "081eac8ff8c940c04b429e2936d4659e6f3ae93b9cfab0a8f3e26e0fb19e3e2a",
+      "sha256": "b73768b928c77977405c12bd944692085a96f328ae9033e3a945382252bc6f02",
       "verdict": "accept",
       "locale": "en-US",
       "profile": "iphone-6.9",
       "screen": "compare",
       "path": "app-store/en-US/iPhone-03_compare.png",
-      "notes": "Both real public La Destilería reviews, @meow attribution, original wording and attached thumbnails are visible."
+      "notes": "Both real reviews and their square thumbnails remain visible."
     },
     {
-      "sha256": "4ba5e190e083c6e31dae0c091f9be37068b237735a1da80fe42f516305b6445a",
+      "sha256": "6431b5519926f2150c8ccd7070ebe9635f50ffc42de2c7d60a68677b1cf5edd6",
       "verdict": "accept",
       "locale": "en-US",
       "profile": "iphone-6.9",
       "screen": "saved",
       "path": "app-store/en-US/iPhone-04_saved.png",
-      "notes": "Saved list contains the real reviewed La Destilería venue in Málaga with its current rating and review count."
+      "notes": "Real saved La Destilería venue remains complete and readable."
     },
     {
-      "sha256": "5627336153af851b208c266107d63cf52bbb456ffc1c9d20f6b54514f2fd885c",
+      "sha256": "ed40b6761a6a813546c7cb104f516f21834db0e903508c9eb15f13480db48032",
       "verdict": "accept",
       "locale": "es-ES",
       "profile": "iphone-6.9",
       "screen": "explore",
       "path": "app-store/es-ES/iPhone-01_explore.png",
-      "notes": "Complete Spanish caption and controls; native Málaga map and real La Destilería reviewed-venue pin are visible."
+      "notes": "Spanish Málaga map and La Destilería pin remain complete and readable."
     },
     {
-      "sha256": "7211c5adad5d986213bb077fc9ad2284f5877e42992cadc43a9491f168d91b80",
+      "sha256": "11effa30be86716eeef51da1374f92f601b8e55ba60e93005a98acd821608855",
       "verdict": "accept",
       "locale": "es-ES",
       "profile": "iphone-6.9",
       "screen": "journal",
       "path": "app-store/es-ES/iPhone-02_journal.png",
-      "notes": "Spanish interface surrounds the unchanged real user-authored review; original photo, rating and price remain readable."
+      "notes": "The original square Málaga photo is fully visible from foam to glass base; Spanish chrome, rating, price, first review line and actions fit the frame."
     },
     {
-      "sha256": "e2b3cf3e13d079450cbfa9de63d3210d2e2689a0b5c3e90e884a49cde4a013e0",
+      "sha256": "a5883b467a0c87a24073bfa6fca8c0e2e8d6ceaa5544dfde1fa2f3f868352d09",
       "verdict": "accept",
       "locale": "es-ES",
       "profile": "iphone-6.9",
       "screen": "compare",
       "path": "app-store/es-ES/iPhone-03_compare.png",
-      "notes": "Spanish venue interface shows both unchanged real reviews, @meow attribution and their original attached thumbnails."
+      "notes": "Both real reviews and their square thumbnails remain visible in Spanish."
     },
     {
-      "sha256": "8d6d5663e412a4e7f3abf5c0a795ecab592126bb32cd63da45b80181b3b4cff1",
+      "sha256": "4eeb68ba2f1906698d2f8f03e72bad290f4dd22e1356ca92d745dbb1a0208b7a",
       "verdict": "accept",
       "locale": "es-ES",
       "profile": "iphone-6.9",
       "screen": "saved",
       "path": "app-store/es-ES/iPhone-04_saved.png",
-      "notes": "Spanish saved list contains the real reviewed La Destilería venue in Málaga with current rating and review count."
+      "notes": "Real saved La Destilería venue remains complete and readable in Spanish."
     }
   ]
 }
