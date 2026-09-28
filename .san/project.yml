@@ -13,3 +13,8 @@ integrations:
   work:
     backlogPath: .san/work.yml
     format: sanWorkV2
+  analytics:
+    provider: goatcounter
+    siteId: sourpuss
+    publicDashboard: https://sourpuss.goatcounter.com
+    searchConsole: pending

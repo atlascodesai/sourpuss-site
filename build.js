@@ -115,7 +115,10 @@ function generateMetaTags(page) {
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="${asset("styles.css")}">`;
+    <link rel="stylesheet" href="${asset("styles.css")}">
+
+    <!-- GoatCounter: cookieless pageviews, public dashboard -->
+    <script data-goatcounter="https://sourpuss.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>`;
 }
 
 // Helper to generate nav

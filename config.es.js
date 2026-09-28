@@ -67,6 +67,11 @@ module.exports = {
         content:
           "<p>Puedes solicitar la eliminación de tu cuenta en Ajustes. El proceso elimina tus credenciales de acceso y los registros de tu cuenta en nuestros servicios, incluidas tus aportaciones y archivos, y solicita la limpieza de datos a los servicios de suscripciones y análisis configurados.</p><p>Si falla algún paso, la aplicación ofrece instrucciones para reintentarlo o contactar con soporte. Puede conservarse un registro de recuperación durante los reintentos. Contacta con soporte si no puedes volver a iniciar sesión para reintentar el proceso.</p><p><strong>Eliminar tu cuenta de Sourpuss no cancela una suscripción de App Store o Google Play.</strong> Gestiona la renovación en la tienda. Los registros de transacciones de la tienda se rigen por sus propias políticas.</p>",
       },
+      {
+        title: "Este sitio web",
+        content:
+          "<p>Este sitio web cuenta las visitas con GoatCounter. No usa cookies, no guarda direcciones IP y no crea perfiles de visitantes. Esto se aplica solo al sitio web, no a la aplicación. Los totales son públicos en <a href=\"https://sourpuss.goatcounter.com\">sourpuss.goatcounter.com</a>.</p>",
+      },
       { title: "Contacto", content: "CONTACT_EMAIL_PLACEHOLDER" },
     ],
   },
