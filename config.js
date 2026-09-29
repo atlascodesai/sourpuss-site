@@ -120,6 +120,11 @@ const CONFIG = {
             },
             {
                 icon: "",
+                title: "This website",
+                content: "<p>This website counts page views with GoatCounter. It sets no cookies, does not store IP addresses, and builds no visitor profiles. This applies to the website only, not the app. The totals are public at <a href=\"https://sourpuss.goatcounter.com\">sourpuss.goatcounter.com</a>.</p>"
+            },
+            {
+                icon: "",
                 title: "Contact us",
                 content: "CONTACT_EMAIL_PLACEHOLDER"
             }
