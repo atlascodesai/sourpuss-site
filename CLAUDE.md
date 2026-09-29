@@ -81,3 +81,11 @@ Push to `main` branch triggers automatic deployment.
 - The cat paw cursor has 4 toe beans (anatomically correct for cats)
 - All HTML files are generated - edit `config.js` and `build.js`, not the HTML directly
 - Privacy policy and FAQ content support HTML in the config
+
+## Cloud sessions
+
+For Claude Code on the web (claude.ai/code). `scripts/cloud-setup.sh` runs automatically at session start (no npm dependencies; it only checks for node and python3).
+
+- Check: `python3 scripts/check-site.py && node --test *.test.js`. The site check runs `node build.js` on a scratch copy and fails if any generated page is stale, so edit `config.js` / `config.es.js` and rebuild rather than editing generated HTML.
+- Work on the session's branch and open a PR. Merging to `main` publishes sourpuss.app via GitHub Pages, so never push `main`. There are no deploy scripts.
+- No secrets are available or needed. Keep changes small and in the site's voice.
